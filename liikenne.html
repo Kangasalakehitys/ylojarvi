@@ -57,7 +57,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -108,11 +128,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+
+<link href="site_libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+
+<script src="site_libs/leaflet-1.3.1/leaflet.js"></script>
+
+<link href="site_libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+
+<script src="site_libs/proj4-2.6.2/proj4.min.js"></script>
+
+<script src="site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+
+<link href="site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+
+<script src="site_libs/leaflet-binding-2.2.2/leaflet.js"></script>
+
 <script src="site_libs/plotly-binding-4.10.4/plotly.js"></script>
 
 <script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
-
-<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
 
 <link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
 
@@ -164,7 +198,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Aluetalous ja yritystoiminta</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./asuminen.html" aria-current="page"> 
+    <a class="nav-link" href="./asuminen.html"> 
 <span class="menu-text">Asuminen</span></a>
   </li>  
   <li class="nav-item">
@@ -180,7 +214,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Verotus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./liikenne.html"> 
+    <a class="nav-link active" href="./liikenne.html" aria-current="page"> 
 <span class="menu-text">Liikenne</span></a>
   </li>  
 </ul>
@@ -1229,1108 +1263,88 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<section id="asuminen" class="level1" data-background-image="./images/5.png">
-<h1 data-background-image="./images/5.png">Asuminen</h1>
-<section id="asuminen---asuntokunnat-talotyypeittäin" class="level2" data-background-image="./images/5.png">
-<h2 data-background-image="./images/5.png" class="anchored" data-anchor-id="asuminen---asuntokunnat-talotyypeittäin">Asuminen - Asuntokunnat talotyypeittäin</h2>
+<section id="liikenne" class="level1" data-background-image="./images/10.png">
+<h1 data-background-image="./images/10.png">Liikenne</h1>
+<section id="liikennemäärät" class="level2">
+<h2 class="anchored" data-anchor-id="liikennemäärät">Liikennemäärät</h2>
+<section id="kartta-lam-antureista" class="level3">
+<h3 class="anchored" data-anchor-id="kartta-lam-antureista">Kartta LAM-antureista</h3>
+<p>Fintraffic kerää tietoa tieliikenteestä liikenteen automaattisten mittausasemien (LAM) avulla. Klikkaamalla kartan nuppineulaa saat auki lähimpien LAM-anturien tiedot alueellasi. Mittausajankohtia verrataan neljän vuoden ajalta samaan päivämäärään (<strong>2024-09-21</strong>) Lähde: <span class="citation" data-cites="lam_tiedot_2024">(<a href="#ref-lam_tiedot_2024" role="doc-biblioref">Fintraffic.fi 2024</a>)</span></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-ed65c5f24125f00e0f4c" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-ed65c5f24125f00e0f4c">{"x":{"visdat":{"11e41e1d4f0a":["function () ","plotlyVisDat"]},"cur_data":"11e41e1d4f0a","attrs":{"11e41e1d4f0a":{"x":{},"y":{},"textposition":"auto","marker":{"color":"#009651","line":{"color":"#009651","width":6}},"name":"<b>Omakoti- ja paritalot<\/b>","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"},"11e41e1d4f0a.1":{"x":{},"y":{},"textposition":"auto","marker":{"color":"#FCB316","line":{"color":"#FCB316","width":6}},"name":"<b>Rivitalot<\/b>","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true},"11e41e1d4f0a.2":{"x":{},"y":{},"textposition":"auto","marker":{"color":"#28336C","line":{"color":"#28336C","width":6}},"name":"<b>Kerrostalot<\/b>","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true},"11e41e1d4f0a.3":{"x":{},"y":{},"textposition":"auto","marker":{"color":"#E64925","line":{"color":"#E64925","width":6}},"name":"<b>Muut rakennukset<\/b>","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true}},"layout":{"margin":{"b":50,"l":50,"t":50,"r":50,"pad":5},"barmode":"stack","autosize":true,"automargin":false,"legend":{"orientation":"v","x":100,"y":0.5,"font":{"size":22}},"paper_bgcolor":"rgba(0,0,0,0)","plot_bgcolor":"rgba(0,0,0,0)","showlegend":true,"xaxis":{"domain":[0,1],"automargin":true,"title":{"text":"<b><\/b>","font":{"size":22},"standoff":25},"tickangle":-90,"tickprefix":"<b>","ticksuffix":"<\/b><br>","showgrid":false,"color":"#575757","tickfont":{"size":22},"type":"category","categoryorder":"array","categoryarray":["2024Q2*"]},"yaxis":{"domain":[0,1],"automargin":true,"griddash":"dot","gridwidth":1,"tickformat":"d","title":{"text":"<b>Lkm<\/b>","font":{"size":22},"standoff":25},"tickprefix":"<b>","ticksuffix":"<\/b><br>","color":"#575757","tickfont":{"size":22}},"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"toImageButtonOptions":{"format":"png","filename":"Asuntokunnat","height":700,"width":800,"scale":1}},"data":[{"x":["2024Q2*"],"y":[8363],"textposition":"auto","marker":{"color":"#009651","line":{"color":"#009651","width":6}},"name":"<b>Omakoti- ja paritalot<\/b>","type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2024Q2*"],"y":[3396],"textposition":"auto","marker":{"color":"#FCB316","line":{"color":"#FCB316","width":6}},"name":"<b>Rivitalot<\/b>","type":"bar","error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2024Q2*"],"y":[2600],"textposition":"auto","marker":{"color":"#28336C","line":{"color":"#28336C","width":6}},"name":"<b>Kerrostalot<\/b>","type":"bar","error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2024Q2*"],"y":[194],"textposition":"auto","marker":{"color":"#E64925","line":{"color":"#E64925","width":6}},"name":"<b>Muut rakennukset<\/b>","type":"bar","error_y":{"color":"rgba(214,39,40,1)"},"error_x":{"color":"rgba(214,39,40,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-904ef00e3ecb90537b1c" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-904ef00e3ecb90537b1c">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[61.54414,23.607493,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"kt65 Ylöjärvi<hr>(Id: 23421)",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"setView":[[61.54414,23.607493],10,[]],"limits":{"lat":[61.54414,61.54414],"lng":[23.607493,23.607493]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<div class="cell">
-<div class="cell-output-display">
-<div id="nffsbfqopm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#nffsbfqopm table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#nffsbfqopm thead, #nffsbfqopm tbody, #nffsbfqopm tfoot, #nffsbfqopm tr, #nffsbfqopm td, #nffsbfqopm th {
-  border-style: none;
-}
-
-#nffsbfqopm p {
-  margin: 0;
-  padding: 0;
-}
-
-#nffsbfqopm .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 10px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: 90%;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#nffsbfqopm .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#nffsbfqopm .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#nffsbfqopm .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#nffsbfqopm .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#nffsbfqopm .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#nffsbfqopm .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#nffsbfqopm .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: bold;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#nffsbfqopm .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: bold;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#nffsbfqopm .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#nffsbfqopm .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#nffsbfqopm .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#nffsbfqopm .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#nffsbfqopm .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#nffsbfqopm .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#nffsbfqopm .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#nffsbfqopm .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#nffsbfqopm .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#nffsbfqopm .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#nffsbfqopm .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#nffsbfqopm .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#nffsbfqopm .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#nffsbfqopm .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#nffsbfqopm .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#nffsbfqopm .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#nffsbfqopm .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#nffsbfqopm .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#nffsbfqopm .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#nffsbfqopm .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#nffsbfqopm .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#nffsbfqopm .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#nffsbfqopm .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#nffsbfqopm .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#nffsbfqopm .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#nffsbfqopm .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#nffsbfqopm .gt_left {
-  text-align: left;
-}
-
-#nffsbfqopm .gt_center {
-  text-align: center;
-}
-
-#nffsbfqopm .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#nffsbfqopm .gt_font_normal {
-  font-weight: normal;
-}
-
-#nffsbfqopm .gt_font_bold {
-  font-weight: bold;
-}
-
-#nffsbfqopm .gt_font_italic {
-  font-style: italic;
-}
-
-#nffsbfqopm .gt_super {
-  font-size: 65%;
-}
-
-#nffsbfqopm .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#nffsbfqopm .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#nffsbfqopm .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#nffsbfqopm .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#nffsbfqopm .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#nffsbfqopm .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#nffsbfqopm .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#nffsbfqopm .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#nffsbfqopm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<thead>
-<tr class="header gt_col_headings">
-<th id="Vuosineljännes" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Vuosineljännes</th>
-<th id="Yhteensä" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Yhteensä</th>
-<th id="Omakoti- ja paritalot" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Omakoti- ja paritalot</th>
-<th id="Rivitalot" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Rivitalot</th>
-<th id="Kerrostalot" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Kerrostalot</th>
-<th id="Muut rakennukset" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Muut rakennukset</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_left" headers="Vuosineljännes">2023Q4</td>
-<td class="gt_row gt_right" headers="Yhteensä">14595</td>
-<td class="gt_row gt_right" headers="Omakoti- ja paritalot">8381</td>
-<td class="gt_row gt_right" headers="Rivitalot">3361</td>
-<td class="gt_row gt_right" headers="Kerrostalot">2619</td>
-<td class="gt_row gt_right" headers="Muut rakennukset">234</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="Vuosineljännes">2024Q1*</td>
-<td class="gt_row gt_right" headers="Yhteensä">14532</td>
-<td class="gt_row gt_right" headers="Omakoti- ja paritalot">8370</td>
-<td class="gt_row gt_right" headers="Rivitalot">3367</td>
-<td class="gt_row gt_right" headers="Kerrostalot">2603</td>
-<td class="gt_row gt_right" headers="Muut rakennukset">192</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="Vuosineljännes">2024Q2*</td>
-<td class="gt_row gt_right" headers="Yhteensä">14553</td>
-<td class="gt_row gt_right" headers="Omakoti- ja paritalot">8363</td>
-<td class="gt_row gt_right" headers="Rivitalot">3396</td>
-<td class="gt_row gt_right" headers="Kerrostalot">2600</td>
-<td class="gt_row gt_right" headers="Muut rakennukset">194</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<section id="talotyyppien--osuudet-asuntokunnissa" class="level3">
-<h3 class="anchored" data-anchor-id="talotyyppien--osuudet-asuntokunnissa">Talotyyppien %-osuudet asuntokunnissa</h3>
-<p>Asuntokunnista <strong>2024Q2</strong>* omakoti- ja paritaloissa asui <strong>57.5 %</strong> (edell. <strong>57.6</strong>). Rivitaloissa asuvien osuus oli <strong>23.3%</strong> (edell. <strong>23.2</strong>) ja kerrostaloissa <strong>17.9%</strong> (edell. <strong>17.9</strong>).</p>
 </section>
+<section id="liikennemäärä-yhteensä" class="level3">
+<h3 class="anchored" data-anchor-id="liikennemäärä-yhteensä">Liikennemäärä yhteensä</h3>
+<p>Liikennettä oli ajanjaksolla <strong>2024-09-21</strong> suunnassa <strong>kt65 Ylöjärvi -&gt; Hämeenkyrö</strong> yhteensä <strong>1.1973^{4}</strong>. Vastaavasti suunnassa <strong>kt65 Ylöjärvi -&gt; Tampere</strong> yhteensä <strong>1.1298^{4}</strong>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-684f701442666c56d73e" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-684f701442666c56d73e">{"x":{"visdat":{"4a84417868e5":["function () ","plotlyVisDat"]},"cur_data":"4a84417868e5","attrs":{"4a84417868e5":{"x":{},"y":{},"color":{},"colors":["#009651","#FCB316","#28336C","#E64925","#00ADC5","#DE232F","#A65628"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":50,"l":50,"t":50,"r":50,"pad":5},"autosize":true,"legend":{"orientation":"h","x":0,"y":-0.5,"font":{"size":22}},"paper_bgcolor":"rgba(0,0,0,0)","plot_bgcolor":"rgba(0,0,0,0)","showlegend":true,"xaxis":{"domain":[0,1],"automargin":true,"autotick":true,"title":{"text":"<b><\/b>","font":{"size":22},"standoff":25},"tickangle":-45,"tickprefix":"<b>","ticksuffix":"<\/b><br>","showgrid":false,"color":"#575757","tickfont":{"size":22},"type":"category","categoryorder":"array","categoryarray":["2021","2022","2023","2024"]},"yaxis":{"domain":[0,1],"automargin":true,"griddash":"dot","gridwidth":1,"tickformat":"d","title":{"text":"<b>Lkm<\/b>","font":{"size":22},"standoff":25},"tickprefix":"<b>","ticksuffix":"<\/b><br>","color":"#575757","tickfont":{"size":22}},"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"toImageButtonOptions":{"format":"png","filename":"Liikennemäärät","height":700,"width":800,"scale":1}},"data":[{"x":["2021","2022","2023","2024"],"y":[10725,10669,11973,9234],"type":"bar","name":"kt65 Ylöjärvi -> Hämeenkyrö","marker":{"color":"rgba(0,150,81,1)","line":{"color":"rgba(0,150,81,1)"}},"textfont":{"color":"rgba(0,150,81,1)"},"error_y":{"color":"rgba(0,150,81,1)"},"error_x":{"color":"rgba(0,150,81,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2021","2022","2023","2024"],"y":[10647,10356,11298,8981],"type":"bar","name":"kt65 Ylöjärvi -> Tampere","marker":{"color":"rgba(166,86,40,1)","line":{"color":"rgba(166,86,40,1)"}},"textfont":{"color":"rgba(166,86,40,1)"},"error_y":{"color":"rgba(166,86,40,1)"},"error_x":{"color":"rgba(166,86,40,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
 </section>
-<section id="asuminen---asuntokunnat-talotyypin-ja-koon-mukaan" class="level2">
-<h2 class="anchored" data-anchor-id="asuminen---asuntokunnat-talotyypin-ja-koon-mukaan">Asuminen - Asuntokunnat talotyypin ja koon mukaan</h2>
+<section id="henkilö--tai-pakettiauto" class="level3">
+<h3 class="anchored" data-anchor-id="henkilö--tai-pakettiauto">Henkilö- tai pakettiauto</h3>
+<p>Henkilö- tai pakettiautoliikennettä oli suunnassa <strong>kt65 Ylöjärvi -&gt; Hämeenkyrö</strong> yhteensä <strong>1.165^{4}</strong>. Suunnan <strong>kt65 Ylöjärvi -&gt; Tampere</strong> liikennemäärä oli yhteensä <strong>1.101^{4}</strong>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-c6b38e7cd9d2a6d26173" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-c6b38e7cd9d2a6d26173">{"x":{"visdat":{"11e46eb6598a":["function () ","plotlyVisDat"]},"cur_data":"11e46eb6598a","attrs":{"11e46eb6598a":{"y":{},"x":{},"orientation":"h","textposition":"auto","marker":{"color":"#009651","line":{"color":"#009651","width":6}},"name":"<b>Omakoti- ja paritalot<\/b>","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"},"11e46eb6598a.1":{"y":{},"x":{},"orientation":"h","textposition":"auto","marker":{"color":"#FCB316","line":{"color":"#FCB316","width":6}},"name":"<b>Rivitalot<\/b>","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true},"11e46eb6598a.2":{"y":{},"x":{},"orientation":"h","textposition":"auto","marker":{"color":"#28336C","line":{"color":"#28336C","width":6}},"name":"<b>Kerrostalot<\/b>","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true},"11e46eb6598a.3":{"y":{},"x":{},"orientation":"h","textposition":"auto","marker":{"color":"#E64925","line":{"color":"#E64925","width":6}},"name":"<b>Muut rakennukset<\/b>","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true}},"layout":{"margin":{"b":50,"l":50,"t":50,"r":50,"pad":5},"barmode":"stack","autosize":true,"automargin":false,"legend":{"orientation":"v","x":-3,"y":-0.5,"font":{"size":22}},"paper_bgcolor":"rgba(0,0,0,0)","plot_bgcolor":"rgba(0,0,0,0)","showlegend":true,"xaxis":{"domain":[0,1],"automargin":true,"title":{"text":"<b><\/b>","font":{"size":22},"standoff":25},"tickangle":-90,"tickprefix":"<b>","ticksuffix":"<\/b><br>","showgrid":false,"color":"#575757","tickfont":{"size":22}},"yaxis":{"domain":[0,1],"automargin":true,"tickformat":"d","title":{"text":"<b>Lkm<\/b>","font":{"size":22},"standoff":25},"tickprefix":"<b>","ticksuffix":"<\/b><br>","color":"#575757","tickfont":{"size":22},"type":"category","categoryorder":"array","categoryarray":["1 henkilö","2 henkilöä","3 henkilöä","4 henkilöä tai enemmän"]},"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"toImageButtonOptions":{"format":"png","filename":"Asuntokunnat_talotyypin_ja_koon_mukaan","height":700,"width":800,"scale":1}},"data":[{"y":["1 henkilö","2 henkilöä","3 henkilöä","4 henkilöä tai enemmän"],"x":[1567,3194,1384,2218],"orientation":"h","textposition":["auto","auto","auto","auto"],"marker":{"color":"#009651","line":{"color":"#009651","width":6}},"name":"<b>Omakoti- ja paritalot<\/b>","type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"y":["1 henkilö","2 henkilöä","3 henkilöä","4 henkilöä tai enemmän"],"x":[1460,1139,431,366],"orientation":"h","textposition":["auto","auto","auto","auto"],"marker":{"color":"#FCB316","line":{"color":"#FCB316","width":6}},"name":"<b>Rivitalot<\/b>","type":"bar","error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"y":["1 henkilö","2 henkilöä","3 henkilöä","4 henkilöä tai enemmän"],"x":[1626,685,185,104],"orientation":"h","textposition":["auto","auto","auto","auto"],"marker":{"color":"#28336C","line":{"color":"#28336C","width":6}},"name":"<b>Kerrostalot<\/b>","type":"bar","error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null},{"y":["1 henkilö","2 henkilöä","3 henkilöä","4 henkilöä tai enemmän"],"x":[115,60,8,11],"orientation":"h","textposition":["auto","auto","auto","auto"],"marker":{"color":"#E64925","line":{"color":"#E64925","width":6}},"name":"<b>Muut rakennukset<\/b>","type":"bar","error_y":{"color":"rgba(214,39,40,1)"},"error_x":{"color":"rgba(214,39,40,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-7cfe5221c5f097ead13f" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-7cfe5221c5f097ead13f">{"x":{"visdat":{"4a8437f14f50":["function () ","plotlyVisDat"]},"cur_data":"4a8437f14f50","attrs":{"4a8437f14f50":{"x":{},"y":{},"color":{},"colors":["#009651","#FCB316","#28336C","#E64925","#00ADC5","#DE232F","#A65628"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":50,"l":50,"t":50,"r":50,"pad":5},"autosize":true,"legend":{"orientation":"h","x":0,"y":-0.5,"font":{"size":22}},"paper_bgcolor":"rgba(0,0,0,0)","plot_bgcolor":"rgba(0,0,0,0)","showlegend":true,"xaxis":{"domain":[0,1],"automargin":true,"autotick":true,"title":{"text":"<b><\/b>","font":{"size":22},"standoff":25},"tickangle":-45,"tickprefix":"<b>","ticksuffix":"<\/b><br>","showgrid":false,"color":"#575757","tickfont":{"size":22},"type":"category","categoryorder":"array","categoryarray":["2021","2022","2023","2024"]},"yaxis":{"domain":[0,1],"automargin":true,"griddash":"dot","gridwidth":1,"tickformat":"d","title":{"text":"<b>Lkm<\/b>","font":{"size":22},"standoff":25},"tickprefix":"<b>","ticksuffix":"<\/b><br>","color":"#575757","tickfont":{"size":22}},"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"toImageButtonOptions":{"format":"png","filename":"Liikennemäärät","height":700,"width":800,"scale":1}},"data":[{"x":["2021","2022","2023","2024"],"y":[10370,10273,11650,9129],"type":"bar","name":"kt65 Ylöjärvi -> Hämeenkyrö","marker":{"color":"rgba(0,150,81,1)","line":{"color":"rgba(0,150,81,1)"}},"textfont":{"color":"rgba(0,150,81,1)"},"error_y":{"color":"rgba(0,150,81,1)"},"error_x":{"color":"rgba(0,150,81,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2021","2022","2023","2024"],"y":[10319,9997,11010,8872],"type":"bar","name":"kt65 Ylöjärvi -> Tampere","marker":{"color":"rgba(166,86,40,1)","line":{"color":"rgba(166,86,40,1)"}},"textfont":{"color":"rgba(166,86,40,1)"},"error_y":{"color":"rgba(166,86,40,1)"},"error_x":{"color":"rgba(166,86,40,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
+</section>
+<section id="kuorma-autot" class="level3">
+<h3 class="anchored" data-anchor-id="kuorma-autot">Kuorma-autot</h3>
+<p>Kuorma-autojen liikennemäärä oli suunnassa <strong>kt65 Ylöjärvi -&gt; Hämeenkyrö</strong> yhteensä <strong>243</strong>. Suunnan <strong>kt65 Ylöjärvi -&gt; Tampere</strong> kuorma-automäärä oli yhteensä <strong>253</strong>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="gtozsgsbtw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#gtozsgsbtw table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#gtozsgsbtw thead, #gtozsgsbtw tbody, #gtozsgsbtw tfoot, #gtozsgsbtw tr, #gtozsgsbtw td, #gtozsgsbtw th {
-  border-style: none;
-}
-
-#gtozsgsbtw p {
-  margin: 0;
-  padding: 0;
-}
-
-#gtozsgsbtw .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 10px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: 90%;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#gtozsgsbtw .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#gtozsgsbtw .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#gtozsgsbtw .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#gtozsgsbtw .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#gtozsgsbtw .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#gtozsgsbtw .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#gtozsgsbtw .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: bold;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#gtozsgsbtw .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: bold;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#gtozsgsbtw .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#gtozsgsbtw .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#gtozsgsbtw .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#gtozsgsbtw .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#gtozsgsbtw .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#gtozsgsbtw .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#gtozsgsbtw .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#gtozsgsbtw .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#gtozsgsbtw .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#gtozsgsbtw .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#gtozsgsbtw .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#gtozsgsbtw .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#gtozsgsbtw .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#gtozsgsbtw .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#gtozsgsbtw .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#gtozsgsbtw .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#gtozsgsbtw .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#gtozsgsbtw .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#gtozsgsbtw .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#gtozsgsbtw .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#gtozsgsbtw .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#gtozsgsbtw .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#gtozsgsbtw .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#gtozsgsbtw .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#gtozsgsbtw .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#gtozsgsbtw .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#gtozsgsbtw .gt_left {
-  text-align: left;
-}
-
-#gtozsgsbtw .gt_center {
-  text-align: center;
-}
-
-#gtozsgsbtw .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#gtozsgsbtw .gt_font_normal {
-  font-weight: normal;
-}
-
-#gtozsgsbtw .gt_font_bold {
-  font-weight: bold;
-}
-
-#gtozsgsbtw .gt_font_italic {
-  font-style: italic;
-}
-
-#gtozsgsbtw .gt_super {
-  font-size: 65%;
-}
-
-#gtozsgsbtw .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#gtozsgsbtw .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#gtozsgsbtw .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#gtozsgsbtw .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#gtozsgsbtw .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#gtozsgsbtw .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#gtozsgsbtw .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#gtozsgsbtw .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#gtozsgsbtw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<thead>
-<tr class="header gt_col_headings">
-<th id="Vuosineljännes" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Vuosineljännes</th>
-<th id="Asuntokunnan koko" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Asuntokunnan koko</th>
-<th id="Yhteensä" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Yhteensä</th>
-<th id="Omakoti- ja paritalot" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Omakoti- ja paritalot</th>
-<th id="Rivitalot" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Rivitalot</th>
-<th id="Kerrostalot" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Kerrostalot</th>
-<th id="Muut rakennukset" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Muut rakennukset</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_left" headers="Vuosineljännes">2023Q4</td>
-<td class="gt_row gt_left" headers="Asuntokunnan koko">1 henkilö</td>
-<td class="gt_row gt_right" headers="Yhteensä">4836</td>
-<td class="gt_row gt_right" headers="Omakoti- ja paritalot">1583</td>
-<td class="gt_row gt_right" headers="Rivitalot">1451</td>
-<td class="gt_row gt_right" headers="Kerrostalot">1650</td>
-<td class="gt_row gt_right" headers="Muut rakennukset">152</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="Vuosineljännes">2023Q4</td>
-<td class="gt_row gt_left" headers="Asuntokunnan koko">2 henkilöä</td>
-<td class="gt_row gt_right" headers="Yhteensä">5053</td>
-<td class="gt_row gt_right" headers="Omakoti- ja paritalot">3195</td>
-<td class="gt_row gt_right" headers="Rivitalot">1122</td>
-<td class="gt_row gt_right" headers="Kerrostalot">671</td>
-<td class="gt_row gt_right" headers="Muut rakennukset">65</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="Vuosineljännes">2023Q4</td>
-<td class="gt_row gt_left" headers="Asuntokunnan koko">3 henkilöä</td>
-<td class="gt_row gt_right" headers="Yhteensä">2024</td>
-<td class="gt_row gt_right" headers="Omakoti- ja paritalot">1404</td>
-<td class="gt_row gt_right" headers="Rivitalot">422</td>
-<td class="gt_row gt_right" headers="Kerrostalot">192</td>
-<td class="gt_row gt_right" headers="Muut rakennukset">6</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="Vuosineljännes">2023Q4</td>
-<td class="gt_row gt_left" headers="Asuntokunnan koko">4 henkilöä tai enemmän</td>
-<td class="gt_row gt_right" headers="Yhteensä">2682</td>
-<td class="gt_row gt_right" headers="Omakoti- ja paritalot">2199</td>
-<td class="gt_row gt_right" headers="Rivitalot">366</td>
-<td class="gt_row gt_right" headers="Kerrostalot">106</td>
-<td class="gt_row gt_right" headers="Muut rakennukset">11</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="Vuosineljännes">2024Q1*</td>
-<td class="gt_row gt_left" headers="Asuntokunnan koko">1 henkilö</td>
-<td class="gt_row gt_right" headers="Yhteensä">4792</td>
-<td class="gt_row gt_right" headers="Omakoti- ja paritalot">1585</td>
-<td class="gt_row gt_right" headers="Rivitalot">1462</td>
-<td class="gt_row gt_right" headers="Kerrostalot">1630</td>
-<td class="gt_row gt_right" headers="Muut rakennukset">115</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="Vuosineljännes">2024Q1*</td>
-<td class="gt_row gt_left" headers="Asuntokunnan koko">2 henkilöä</td>
-<td class="gt_row gt_right" headers="Yhteensä">5053</td>
-<td class="gt_row gt_right" headers="Omakoti- ja paritalot">3200</td>
-<td class="gt_row gt_right" headers="Rivitalot">1118</td>
-<td class="gt_row gt_right" headers="Kerrostalot">677</td>
-<td class="gt_row gt_right" headers="Muut rakennukset">58</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="Vuosineljännes">2024Q1*</td>
-<td class="gt_row gt_left" headers="Asuntokunnan koko">3 henkilöä</td>
-<td class="gt_row gt_right" headers="Yhteensä">2006</td>
-<td class="gt_row gt_right" headers="Omakoti- ja paritalot">1383</td>
-<td class="gt_row gt_right" headers="Rivitalot">426</td>
-<td class="gt_row gt_right" headers="Kerrostalot">189</td>
-<td class="gt_row gt_right" headers="Muut rakennukset">8</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="Vuosineljännes">2024Q1*</td>
-<td class="gt_row gt_left" headers="Asuntokunnan koko">4 henkilöä tai enemmän</td>
-<td class="gt_row gt_right" headers="Yhteensä">2681</td>
-<td class="gt_row gt_right" headers="Omakoti- ja paritalot">2202</td>
-<td class="gt_row gt_right" headers="Rivitalot">361</td>
-<td class="gt_row gt_right" headers="Kerrostalot">107</td>
-<td class="gt_row gt_right" headers="Muut rakennukset">11</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="Vuosineljännes">2024Q2*</td>
-<td class="gt_row gt_left" headers="Asuntokunnan koko">1 henkilö</td>
-<td class="gt_row gt_right" headers="Yhteensä">4768</td>
-<td class="gt_row gt_right" headers="Omakoti- ja paritalot">1567</td>
-<td class="gt_row gt_right" headers="Rivitalot">1460</td>
-<td class="gt_row gt_right" headers="Kerrostalot">1626</td>
-<td class="gt_row gt_right" headers="Muut rakennukset">115</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="Vuosineljännes">2024Q2*</td>
-<td class="gt_row gt_left" headers="Asuntokunnan koko">2 henkilöä</td>
-<td class="gt_row gt_right" headers="Yhteensä">5078</td>
-<td class="gt_row gt_right" headers="Omakoti- ja paritalot">3194</td>
-<td class="gt_row gt_right" headers="Rivitalot">1139</td>
-<td class="gt_row gt_right" headers="Kerrostalot">685</td>
-<td class="gt_row gt_right" headers="Muut rakennukset">60</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="Vuosineljännes">2024Q2*</td>
-<td class="gt_row gt_left" headers="Asuntokunnan koko">3 henkilöä</td>
-<td class="gt_row gt_right" headers="Yhteensä">2008</td>
-<td class="gt_row gt_right" headers="Omakoti- ja paritalot">1384</td>
-<td class="gt_row gt_right" headers="Rivitalot">431</td>
-<td class="gt_row gt_right" headers="Kerrostalot">185</td>
-<td class="gt_row gt_right" headers="Muut rakennukset">8</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="Vuosineljännes">2024Q2*</td>
-<td class="gt_row gt_left" headers="Asuntokunnan koko">4 henkilöä tai enemmän</td>
-<td class="gt_row gt_right" headers="Yhteensä">2699</td>
-<td class="gt_row gt_right" headers="Omakoti- ja paritalot">2218</td>
-<td class="gt_row gt_right" headers="Rivitalot">366</td>
-<td class="gt_row gt_right" headers="Kerrostalot">104</td>
-<td class="gt_row gt_right" headers="Muut rakennukset">11</td>
-</tr>
-</tbody>
-</table>
-
+<div class="plotly html-widget html-fill-item" id="htmlwidget-a53004bcbac0df541ead" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-a53004bcbac0df541ead">{"x":{"visdat":{"4a84455b2c47":["function () ","plotlyVisDat"]},"cur_data":"4a84455b2c47","attrs":{"4a84455b2c47":{"x":{},"y":{},"color":{},"colors":["#009651","#FCB316","#28336C","#E64925","#00ADC5","#DE232F","#A65628"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":50,"l":50,"t":50,"r":50,"pad":5},"autosize":true,"legend":{"orientation":"h","x":0,"y":-0.5,"font":{"size":22}},"paper_bgcolor":"rgba(0,0,0,0)","plot_bgcolor":"rgba(0,0,0,0)","showlegend":true,"xaxis":{"domain":[0,1],"automargin":true,"autotick":true,"title":{"text":"<b><\/b>","font":{"size":22},"standoff":25},"tickangle":-45,"tickprefix":"<b>","ticksuffix":"<\/b><br>","showgrid":false,"color":"#575757","tickfont":{"size":22},"type":"category","categoryorder":"array","categoryarray":["2021","2022","2023","2024"]},"yaxis":{"domain":[0,1],"automargin":true,"griddash":"dot","gridwidth":1,"tickformat":"d","title":{"text":"<b>Lkm<\/b>","font":{"size":22},"standoff":25},"tickprefix":"<b>","ticksuffix":"<\/b><br>","color":"#575757","tickfont":{"size":22}},"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"toImageButtonOptions":{"format":"png","filename":"Liikennemäärät","height":700,"width":800,"scale":1}},"data":[{"x":["2021","2022","2023","2024"],"y":[304,336,243,64],"type":"bar","name":"kt65 Ylöjärvi -> Hämeenkyrö","marker":{"color":"rgba(0,150,81,1)","line":{"color":"rgba(0,150,81,1)"}},"textfont":{"color":"rgba(0,150,81,1)"},"error_y":{"color":"rgba(0,150,81,1)"},"error_x":{"color":"rgba(0,150,81,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2021","2022","2023","2024"],"y":[299,311,253,76],"type":"bar","name":"kt65 Ylöjärvi -> Tampere","marker":{"color":"rgba(166,86,40,1)","line":{"color":"rgba(166,86,40,1)"}},"textfont":{"color":"rgba(166,86,40,1)"},"error_y":{"color":"rgba(166,86,40,1)"},"error_x":{"color":"rgba(166,86,40,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
+</section>
+<section id="linja-autot" class="level3">
+<h3 class="anchored" data-anchor-id="linja-autot">Linja-autot</h3>
+<p>Linja-autoja liikkui suunnassa <strong>kt65 Ylöjärvi -&gt; Hämeenkyrö</strong> yhteensä <strong>54</strong>. Vastaavasti suunnassa <strong>kt65 Ylöjärvi -&gt; Tampere</strong> linja-autoja oli yhteensä <strong>22</strong>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-162b225ca618efa3f8dd" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-162b225ca618efa3f8dd">{"x":{"visdat":{"4a847e96532d":["function () ","plotlyVisDat"]},"cur_data":"4a847e96532d","attrs":{"4a847e96532d":{"x":{},"y":{},"color":{},"colors":["#009651","#FCB316","#28336C","#E64925","#00ADC5","#DE232F","#A65628"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":50,"l":50,"t":50,"r":50,"pad":5},"autosize":true,"legend":{"orientation":"h","x":0,"y":-0.5,"font":{"size":22}},"paper_bgcolor":"rgba(0,0,0,0)","plot_bgcolor":"rgba(0,0,0,0)","showlegend":true,"xaxis":{"domain":[0,1],"automargin":true,"autotick":true,"title":{"text":"<b><\/b>","font":{"size":22},"standoff":25},"tickangle":-45,"tickprefix":"<b>","ticksuffix":"<\/b><br>","showgrid":false,"color":"#575757","tickfont":{"size":22},"type":"category","categoryorder":"array","categoryarray":["2021","2022","2023","2024"]},"yaxis":{"domain":[0,1],"automargin":true,"griddash":"dot","gridwidth":1,"tickformat":"d","title":{"text":"<b>Lkm<\/b>","font":{"size":22},"standoff":25},"tickprefix":"<b>","ticksuffix":"<\/b><br>","color":"#575757","tickfont":{"size":22}},"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"toImageButtonOptions":{"format":"png","filename":"Liikennemäärät","height":700,"width":800,"scale":1}},"data":[{"x":["2021","2022","2023","2024"],"y":[30,32,54,32],"type":"bar","name":"kt65 Ylöjärvi -> Hämeenkyrö","marker":{"color":"rgba(0,150,81,1)","line":{"color":"rgba(0,150,81,1)"}},"textfont":{"color":"rgba(0,150,81,1)"},"error_y":{"color":"rgba(0,150,81,1)"},"error_x":{"color":"rgba(0,150,81,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2021","2022","2023","2024"],"y":[11,24,22,23],"type":"bar","name":"kt65 Ylöjärvi -> Tampere","marker":{"color":"rgba(166,86,40,1)","line":{"color":"rgba(166,86,40,1)"}},"textfont":{"color":"rgba(166,86,40,1)"},"error_y":{"color":"rgba(166,86,40,1)"},"error_x":{"color":"rgba(166,86,40,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
+</div>
+</section>
+<section id="henkilöauto-ja-asuntovaunu" class="level3">
+<h3 class="anchored" data-anchor-id="henkilöauto-ja-asuntovaunu">Henkilöauto ja asuntovaunu</h3>
+<p>Asuntovaunujen kanssa liikkuvia henkilöautoja oli suunnassa <strong>kt65 Ylöjärvi -&gt; Hämeenkyrö</strong> yhteensä <strong>26</strong> ja suunnassa <strong>kt65 Ylöjärvi -&gt; Tampere</strong> yhteensä <strong>13</strong>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-6cb75f2bb91a890e9c46" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-6cb75f2bb91a890e9c46">{"x":{"visdat":{"4a8419954543":["function () ","plotlyVisDat"]},"cur_data":"4a8419954543","attrs":{"4a8419954543":{"x":{},"y":{},"color":{},"colors":["#009651","#FCB316","#28336C","#E64925","#00ADC5","#DE232F","#A65628"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":50,"l":50,"t":50,"r":50,"pad":5},"autosize":true,"legend":{"orientation":"h","x":0,"y":-0.5,"font":{"size":22}},"paper_bgcolor":"rgba(0,0,0,0)","plot_bgcolor":"rgba(0,0,0,0)","showlegend":true,"xaxis":{"domain":[0,1],"automargin":true,"autotick":true,"title":{"text":"<b><\/b>","font":{"size":22},"standoff":25},"tickangle":-45,"tickprefix":"<b>","ticksuffix":"<\/b><br>","showgrid":false,"color":"#575757","tickfont":{"size":22},"type":"category","categoryorder":"array","categoryarray":["2021","2022","2023","2024"]},"yaxis":{"domain":[0,1],"automargin":true,"griddash":"dot","gridwidth":1,"tickformat":"d","title":{"text":"<b>Lkm<\/b>","font":{"size":22},"standoff":25},"tickprefix":"<b>","ticksuffix":"<\/b><br>","color":"#575757","tickfont":{"size":22}},"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"toImageButtonOptions":{"format":"png","filename":"Liikennemäärät","height":700,"width":800,"scale":1}},"data":[{"x":["2021","2022","2023","2024"],"y":[21,28,26,9],"type":"bar","name":"kt65 Ylöjärvi -> Hämeenkyrö","marker":{"color":"rgba(0,150,81,1)","line":{"color":"rgba(0,150,81,1)"}},"textfont":{"color":"rgba(0,150,81,1)"},"error_y":{"color":"rgba(0,150,81,1)"},"error_x":{"color":"rgba(0,150,81,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2021","2022","2023","2024"],"y":[18,24,13,10],"type":"bar","name":"kt65 Ylöjärvi -> Tampere","marker":{"color":"rgba(166,86,40,1)","line":{"color":"rgba(166,86,40,1)"}},"textfont":{"color":"rgba(166,86,40,1)"},"error_y":{"color":"rgba(166,86,40,1)"},"error_x":{"color":"rgba(166,86,40,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="moottoripyörät-ja-mopot" class="level3">
+<h3 class="anchored" data-anchor-id="moottoripyörät-ja-mopot">Moottoripyörät ja mopot</h3>
+</section>
+<section id="hct-high-capacity-truck" class="level3">
+<h3 class="anchored" data-anchor-id="hct-high-capacity-truck">HCT (High Capacity Truck)</h3>
+<p>Lyhenne HCT tulee sanoista High Capacity Transport. Lyhenne on kansainvälisesti vakiintunut termi sallittua pidemmille tai raskaammille yhdistelmille tieliikenteessä, joita ei kuitenkaan pidetä erikoiskuljetuksina.</p>
+
 
 
 </section>
 </section>
+</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Lähteet</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-lam_tiedot_2024" class="csl-entry" role="listitem">
+Fintraffic.fi. 2024. <em>Liikenteen automaattiset mittaustiedot</em>. Fintraffic.fi. <a href="https://www.digitraffic.fi/tieliikenne/lam/">https://www.digitraffic.fi/tieliikenne/lam/</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script type="ojs-module-contents">
 eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuXG5kMyA9IHJlcXVpcmUoXCJkM0A3XCIpXG4vL2ltcG9ydCB7TGVnZW5kfSBmcm9tIFwiQGQzL2NvbG9yLWxlZ2VuZFwiXG5cbmZvbGRlckt1bm5hdDI0VG9wb0pTT04gPSBcIi4vbWFwcy9LdW5uYXQyMDI0VG9wby5qc29uXCJcbmt1bm5hdDIwMjR0b3BvID0gRmlsZUF0dGFjaG1lbnREeW5hbWljKGZvbGRlckt1bm5hdDI0VG9wb0pTT04pLmpzb24oKVxubWFwVG9wb0pTT04gPSB0b3BvanNvbi5mZWF0dXJlKGt1bm5hdDIwMjR0b3BvLCBrdW5uYXQyMDI0dG9wby5vYmplY3RzLkt1bm5hdDIwMjRfZ2VvKS5mZWF0dXJlc1xuXG5cbmZvbGRlck1hYWt1bm5hdDI0VG9wb0pTT04gPSBcIi4vbWFwcy9NYWFrdW5uYXQyMDI0VG9wby5qc29uXCJcbm1hYWt1bm5hdF8yMDI0X3RvcG8gPSAgRmlsZUF0dGFjaG1lbnREeW5hbWljKGZvbGRlck1hYWt1bm5hdDI0VG9wb0pTT04pLmpzb24oKVxuXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcblxuLy8tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSBGVU5LVElPVCBBTEtBQVxuXG4vL1RlaGTDpMOkbiB1dXNpIGZ1bmt0aW8sIGpvc3NhIHZvaWRhYW4gc3nDtnR0w6TDpCBtdXV0dHVqYVxuRmlsZUF0dGFjaG1lbnREeW5hbWljID0gZnVuY3Rpb24oZmlsZW5hbWUpIHtcbiAgcmV0dXJuIG5ldyBGdW5jdGlvbihcIkZpbGVBdHRhY2htZW50XCIsIGByZXR1cm4gRmlsZUF0dGFjaG1lbnQoXCIke2ZpbGVuYW1lfVwiKWApKEZpbGVBdHRhY2htZW50KVxufVxuXG4vLyBWYWloZGV0YWFuIHRla3N0aW4gdsOkcmlcbmNvbG9yID0gZnVuY3Rpb24odmFyaSkge1xuICBpZih2YXJpID4gMCl7XG4gICAgICByZXR1cm4gXCJncmVlblwiXG4gICAgfWVsc2V7XG4gICAgICByZXR1cm4gXCJyZWRcIlxuICAgIH1cbn1cbi8vIFB5w7ZyaXN0eXNcbnB5b3Jpc3R5cyA9IGZ1bmN0aW9uKG4sIHBsYWNlcykge1xuICBpZiAoIXBsYWNlcykgcmV0dXJuIE1hdGgucm91bmQobik7XG4gIGNvbnN0IGQgPSAxMCAqKiBwbGFjZXM7XG4gIHJldHVybiBNYXRoLnJvdW5kKG4gKiBkKSAvIGQ7XG59XG4vL0V1cm9tZXJraW50w6RcbmV1cm90ID0gZnVuY3Rpb24obnVtYmVyKSB7XG4gIHJldHVybiBudW1iZXIudG9Mb2NhbGVTdHJpbmcoJ2ZpLUZJJywgeyBzdHlsZTogJ2N1cnJlbmN5JywgY3VycmVuY3k6ICdFVVInLG1pbmltdW1GcmFjdGlvbkRpZ2l0czogMCB9KTtcbn1cbi8vIEV1cm9tdXV0b2tzZW4gbGFza2VtaW5lbiBrZXJ0b2ltZWxsYVxubXV1dG9za2Vycm9pbiA9IGZ1bmN0aW9uKHgsIHkpIHtcbiAgcmV0dXJuICgxK3gvMTAwKSp5O1xufVxuLy8gTXV1dG9zcHJvc2VudHRpXG5tdXV0b3Nwcm9zZW50dGkgPSBmdW5jdGlvbih4LCB5KSB7XG4gIHJldHVybiBweW9yaXN0eXMoKCh4LXkpL3kpKjEwMCwxKTtcbn1cbi8vIFR1aGF0amFrYWphXG50dWhhdGpha2FqYSA9IGZ1bmN0aW9uKHgpIHtcbiAgcmV0dXJuIHgvMTAwMDtcbn1cbi8vIEV1cm9tdXV0b2tzZW4gbGFza2VtaW5lbiBrZXJ0b2ltZWxsYVxucGFsa2tha2Vycm9pbiA9IGZ1bmN0aW9uKHgsIHkpIHtcbiAgcmV0dXJuIDEwMCooKDEreC8xMDApKigxK3kvMTAwKS0xKTtcbn1cbi8vIEpha28tb3N1dWRlbiBhc3VrYXNrZXJyb2luXG5hc3VrYXNrZXJyb2luID0gZnVuY3Rpb24oeCwgeSkge1xuICByZXR1cm4gKHgveSk7XG59XG4vLyBKYWtvLW9zdXVkZW4gdmVyb3Byb3NlbnR0aWtlcnJvaW4gbWlpbnVzMS9taWludXMzIHZ1b3R0YSBtaWludXMgMSB2dW9kZW4ga2Vycm9pblxudmVyb3Byb3NlbnR0aWtlcnJvaW4gPSBmdW5jdGlvbih4LCB5KSB7XG4gIHJldHVybiAoeC95KTtcbn1cbi8vIEt1bm5hbiBtdW9rLiBrdW5uYWxsaXN2ZXJvLCBhbGt1dnVvc2kgamEgbG9wcHV2dW9zaSBcbmt1bm5hbGxpc3Zlcm9fbXVva2thdXMgPSBmdW5jdGlvbihrdW5uYWxsaXN2ZXJvLGFzdWthc2tlcnJvaW4sdmVyb3Byb3NlbnR0aSkge1xuICByZXR1cm4ga3VubmFsbGlzdmVybyphc3VrYXNrZXJyb2luKnZlcm9wcm9zZW50dGk7XG59XG5cbi8vVGVrc3RpbXV1dG9rc2V0XG5mbl9ub3VzdV9sYXNrdV90eHQgPSBmdW5jdGlvbihhcnZvKXtcbiAgaWYoYXJ2byA+IDApIHtcbiAgcmV0dXJuIFwia2FzdmFudXRcIiBcbiAgfVxuICBlbHNlIHsgXG4gIHJldHVybiBcImxhc2tlbnV0XCI7XG4gIH1cbn1cblxuLy9UQVJWSVRBQU4gS0FSVE9JU1NBXG5zZXJpYWxpemUgPSB7XG4gIGNvbnN0IHhtbG5zID0gXCJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3htbG5zL1wiO1xuICBjb25zdCB4bGlua25zID0gXCJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rXCI7XG4gIGNvbnN0IHN2Z25zID0gXCJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Z1wiO1xuICByZXR1cm4gZnVuY3Rpb24gc2VyaWFsaXplKHN2Zykge1xuICAgIHN2ZyA9IHN2Zy5jbG9uZU5vZGUodHJ1ZSk7XG4gICAgY29uc3QgZnJhZ21lbnQgPSB3aW5kb3cubG9jYXRpb24uaHJlZiArIFwiI1wiO1xuICAgIGNvbnN0IHdhbGtlciA9IGRvY3VtZW50LmNyZWF0ZVRyZWVXYWxrZXIoc3ZnLCBOb2RlRmlsdGVyLlNIT1dfRUxFTUVOVCk7XG4gICAgd2hpbGUgKHdhbGtlci5uZXh0Tm9kZSgpKSB7XG4gICAgICBmb3IgKGNvbnN0IGF0dHIgb2Ygd2Fsa2VyLmN1cnJlbnROb2RlLmF0dHJpYnV0ZXMpIHtcbiAgICAgICAgaWYgKGF0dHIudmFsdWUuaW5jbHVkZXMoZnJhZ21lbnQpKSB7XG4gICAgICAgICAgYXR0ci52YWx1ZSA9IGF0dHIudmFsdWUucmVwbGFjZShmcmFnbWVudCwgXCIjXCIpO1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICAgIHN2Zy5zZXRBdHRyaWJ1dGVOUyh4bWxucywgXCJ4bWxuc1wiLCBzdmducyk7XG4gICAgc3ZnLnNldEF0dHJpYnV0ZU5TKHhtbG5zLCBcInhtbG5zOnhsaW5rXCIsIHhsaW5rbnMpO1xuICAgIGNvbnN0IHNlcmlhbGl6ZXIgPSBuZXcgd2luZG93LlhNTFNlcmlhbGl6ZXI7XG4gICAgY29uc3Qgc3RyaW5nID0gc2VyaWFsaXplci5zZXJpYWxpemVUb1N0cmluZyhzdmcpO1xuICAgIHJldHVybiBuZXcgQmxvYihbc3RyaW5nXSwge3R5cGU6IFwiaW1hZ2Uvc3ZnK3htbFwifSk7XG4gIH07XG59XG5cblxuZnVuY3Rpb24gdG9TVkcoY2hhcnQpIHtcbiAgaWYgKGNoYXJ0Lm5vZGVOYW1lICE9PSBcIkZJR1VSRVwiKSB7XG4gICAgcmV0dXJuIGNoYXJ0O1xuICB9XG5cbiAgLy8gdGhlIGNoYXJ0IG5lZWRzIHRvIGJlIGluIHRoZSBib2R5IGlmIHdlIHdhbnQgdG8gcmVhZCB2YWx1ZXMsIHBvc2l0aW9ucywgc2l6ZXPigKZcbiAgZG9jdW1lbnQuYm9keS5hcHBlbmRDaGlsZChjaGFydCk7XG4gIGNvbnN0IFt4MCwgeTAsIHdpZHRoLCBoZWlnaHRdID0gZ2V0Qm91bmRzKFtjaGFydF0pO1xuXG4gIGNvbnN0IG5vZGVzID0gW107XG5cbiAgZm9yIChjb25zdCBub2RlIG9mIGQzXG4gICAgLnNlbGVjdChjaGFydClcbiAgICAuc2VsZWN0Q2hpbGRyZW4oXCJoMSxoMixoMyxkaXYsZmlnY2FwdGlvbixzdmdcIikpIHtcbiAgICBzd2l0Y2ggKG5vZGUubm9kZU5hbWUudG9Mb3dlckNhc2UoKSkge1xuICAgICAgY2FzZSBcImRpdlwiOlxuICAgICAgICB7XG4gICAgICAgICAgY29uc3QgY2hpbGRyZW4gPSBkMy5zZWxlY3Qobm9kZSkuc2VsZWN0Q2hpbGRyZW4oXCJkaXYsc3BhblwiKTtcbiAgICAgICAgICBjb25zdCBoZWlnaHQgPSBnZXRCb3VuZHMoW25vZGUsIC4uLmNoaWxkcmVuXSlbM10gKyAyO1xuICAgICAgICAgIGNvbnN0IHN2ZyA9IGQzXG4gICAgICAgICAgICAuc2VsZWN0KGNoYXJ0KVxuICAgICAgICAgICAgLmFwcGVuZChcInN2Z1wiKVxuICAgICAgICAgICAgLmF0dHIoXCJ3aWR0aFwiLCB3aWR0aClcbiAgICAgICAgICAgIC5hdHRyKFwiaGVpZ2h0XCIsIGhlaWdodCk7XG4gICAgICAgICAgbm9kZXMucHVzaChzdmcubm9kZSgpKTtcblxuICAgICAgICAgIGNvbnN0IHN3YXRjaGVzID0gc3ZnXG4gICAgICAgICAgICAuc2VsZWN0QWxsKClcbiAgICAgICAgICAgIC5kYXRhKFxuICAgICAgICAgICAgICBBcnJheS5mcm9tKGNoaWxkcmVuLCAoZCkgPT4ge1xuICAgICAgICAgICAgICAgIGNvbnN0IHN2ZyA9IGQzLnNlbGVjdChkKS5zZWxlY3QoXCJzdmdcIikubm9kZSgpO1xuICAgICAgICAgICAgICAgIGNvbnN0IGJib3ggPSBzdmcuZ2V0QkJveCgpO1xuICAgICAgICAgICAgICAgIHJldHVybiB7XG4gICAgICAgICAgICAgICAgICBzdHlsZTogd2luZG93LmdldENvbXB1dGVkU3R5bGUoZCksXG4gICAgICAgICAgICAgICAgICBzdmcsXG4gICAgICAgICAgICAgICAgICB3aWR0aDogYmJveC53aWR0aCxcbiAgICAgICAgICAgICAgICAgIGhlaWdodDogYmJveC5oZWlnaHQsXG4gICAgICAgICAgICAgICAgICB0ZXh0OiBkLnRleHRDb250ZW50LFxuICAgICAgICAgICAgICAgICAgYm91bmRzOiBnZXRCb3VuZHMoW2RdKVxuICAgICAgICAgICAgICAgIH07XG4gICAgICAgICAgICAgIH0pXG4gICAgICAgICAgICApXG4gICAgICAgICAgICAuam9pbihcImdcIilcbiAgICAgICAgICAgIC5hdHRyKFxuICAgICAgICAgICAgICBcInRyYW5zZm9ybVwiLFxuICAgICAgICAgICAgICAoZCkgPT4gYHRyYW5zbGF0ZSgke2QuYm91bmRzWzBdIC0geDB9LCR7MTAgKyBkLmJvdW5kc1sxXSAtIHkwfSlgXG4gICAgICAgICAgICApO1xuXG4gICAgICAgICAgc3dhdGNoZXNcbiAgICAgICAgICAgIC5hcHBlbmQoKGQpID0+IGQuc3ZnKSAvLyBcInJlY3RcIilcbiAgICAgICAgICAgIC5hdHRyKFwid2lkdGhcIiwgKGQpID0+IGQud2lkdGgpXG4gICAgICAgICAgICAuYXR0cihcImhlaWdodFwiLCAoZCkgPT4gZC5oZWlnaHQpXG4gICAgICAgICAgICAuYXR0cihcInlcIiwgKGQpID0+IGAkey1wYXJzZUZsb2F0KGQuaGVpZ2h0KSAvIDJ9cHhgKTtcbiAgICAgICAgICBzd2F0Y2hlc1xuICAgICAgICAgICAgLmFwcGVuZChcInRleHRcIilcbiAgICAgICAgICAgIC50ZXh0KChkKSA9PiBkLnRleHQpXG4gICAgICAgICAgICAuYXR0cihcInhcIiwgKGQpID0+IGQud2lkdGgpXG4gICAgICAgICAgICAuYXR0cihcImR4XCIsIDUpXG4gICAgICAgICAgICAuYXR0cihcImR5XCIsIFwiMC4zOGVtXCIpXG4gICAgICAgICAgICAuYXR0cihcImZvbnQtZmFtaWx5XCIsIChkKSA9PiBkLnN0eWxlLmZvbnRGYW1pbHkpXG4gICAgICAgICAgICAuYXR0cihcImZvbnQtc2l6ZVwiLCAoZCkgPT4gZC5zdHlsZS5mb250U2l6ZSlcbiAgICAgICAgICAgIC5hdHRyKFwiZmlsbFwiLCAoZCkgPT4gZC5zdHlsZS5jb2xvcik7XG4gICAgICAgIH1cbiAgICAgICAgYnJlYWs7XG4gICAgICBjYXNlIFwiZmlnY2FwdGlvblwiOlxuICAgICAgY2FzZSBcImgxXCI6XG4gICAgICBjYXNlIFwiaDJcIjpcbiAgICAgIGNhc2UgXCJoM1wiOlxuICAgICAgICB7XG4gICAgICAgICAgY29uc3Qgc3ZnID0gZDNcbiAgICAgICAgICAgIC5zZWxlY3QoY2hhcnQpXG4gICAgICAgICAgICAuYXBwZW5kKFwic3ZnXCIpXG4gICAgICAgICAgICAuYXR0cihcIndpZHRoXCIsIHdpZHRoKVxuICAgICAgICAgICAgLmF0dHIoXCJvdmVyZmxvd1wiLCBcInZpc2libGVcIik7XG4gICAgICAgICAgbm9kZXMucHVzaChzdmcubm9kZSgpKTtcblxuICAgICAgICAgIGNvbnN0IGNoaWxkcmVuID0gZDMuc2VsZWN0KG5vZGUpLnNlbGVjdENoaWxkcmVuKCk7XG5cbiAgICAgICAgICBsZXQgaCA9IDA7XG4gICAgICAgICAgZm9yIChjb25zdCBkIG9mIGNoaWxkcmVuLnNpemUoKSA+IDBcbiAgICAgICAgICAgID8gY2hpbGRyZW4uc2VsZWN0Q2hpbGRyZW4oKVxuICAgICAgICAgICAgOiBbbm9kZV0pIHtcbiAgICAgICAgICAgIGNvbnN0IHN0eWxlID0gd2luZG93LmdldENvbXB1dGVkU3R5bGUoZCk7XG4gICAgICAgICAgICBjb25zdCB0ID0gc3ZnXG4gICAgICAgICAgICAgIC5hcHBlbmQoXCJnXCIpXG4gICAgICAgICAgICAgIC5hdHRyKFwidHJhbnNmb3JtXCIsIGB0cmFuc2xhdGUoMCwke2h9KWApXG4gICAgICAgICAgICAgIC5hcHBlbmQoKCkgPT5cbiAgICAgICAgICAgICAgICBkM1xuICAgICAgICAgICAgICAgICAgLnNlbGVjdChcbiAgICAgICAgICAgICAgICAgICAgUGxvdC50ZXh0KFtkLnRleHRDb250ZW50XSwge1xuICAgICAgICAgICAgICAgICAgICAgIHRleHQ6IChkKSA9PiBkLFxuICAgICAgICAgICAgICAgICAgICAgIGxpbmVXaWR0aDpcbiAgICAgICAgICAgICAgICAgICAgICAgICgxLjA2ICogcGFyc2VGbG9hdChzdHlsZS53aWR0aCkpIC9cbiAgICAgICAgICAgICAgICAgICAgICAgIHBhcnNlRmxvYXQoc3R5bGUuZm9udFNpemUpLFxuICAgICAgICAgICAgICAgICAgICAgIGxpbmVIZWlnaHQ6IDEuMixcbiAgICAgICAgICAgICAgICAgICAgICBmcmFtZUFuY2hvcjogXCJ0b3AtbGVmdFwiXG4gICAgICAgICAgICAgICAgICAgIH0pLnBsb3QoKVxuICAgICAgICAgICAgICAgICAgKVxuICAgICAgICAgICAgICAgICAgLnNlbGVjdChcInRleHRcIilcbiAgICAgICAgICAgICAgICAgIC5hdHRyKFwiZm9udC1mYW1pbHlcIiwgc3R5bGUuZm9udEZhbWlseSlcbiAgICAgICAgICAgICAgICAgIC5hdHRyKFwiZm9udC1zaXplXCIsIDEuMDggKiBwYXJzZUZsb2F0KHN0eWxlLmZvbnRTaXplKSlcbiAgICAgICAgICAgICAgICAgIC5hdHRyKFwiZm9udC13ZWlnaHRcIiwgc3R5bGUuZm9udFdlaWdodClcbiAgICAgICAgICAgICAgICAgIC5hdHRyKFwiZmlsbFwiLCBzdHlsZS5jb2xvcilcbiAgICAgICAgICAgICAgICAgIC5ub2RlKClcbiAgICAgICAgICAgICAgKTtcbiAgICAgICAgICAgIGggKz0gZ2V0Qm91bmRzKFt0Lm5vZGUoKV0pWzNdICsgNDtcbiAgICAgICAgICB9XG4gICAgICAgICAgc3ZnLmF0dHIoXCJoZWlnaHRcIiwgaCk7XG4gICAgICAgIH1cbiAgICAgICAgYnJlYWs7XG4gICAgICBjYXNlIFwic3ZnXCI6XG4gICAgICAgIGQzLnNlbGVjdChjaGFydCkuYXBwZW5kKCgpID0+IG5vZGUpO1xuICAgICAgICBub2Rlcy5wdXNoKG5vZGUpO1xuICAgICAgICBicmVhaztcbiAgICB9XG4gIH1cblxuICByZXR1cm4gc2VyaWFsaXplQWxsKG5vZGVzKVxuICAgIC50aGVuKChibG9iKSA9PiBibG9iLnRleHQoKSlcbiAgICAudGhlbigoYykgPT4ge1xuICAgICAgZG9jdW1lbnQuYm9keS5yZW1vdmVDaGlsZChjaGFydCk7XG4gICAgICByZXR1cm4gT2JqZWN0LmFzc2lnbihzdmdgJHtjfWAsIGNoYXJ0KTtcbiAgICB9KTtcbn1cblxuXG4vLyBHaXZlbiBhbiBhcnJheSBvZiBTVkcgZWxlbWVudHMsIGNvbXBvc2l0ZXMgdGhlbSBpbnRvIGEgc2luZ2xlIFNWRyBlbGVtZW50LFxuLy8gYW5kIHRoZW4gc2VyaWFsaXplcyB0aGUgcmVzdWx0IHRvIGEgYmxvYi5cbmFzeW5jIGZ1bmN0aW9uIHNlcmlhbGl6ZUFsbChlbGVtZW50cywge3BhZGRpbmcgPSAxMH0gPSB7fSkge1xuICBjb25zdCBmcmFnbWVudCA9IGxvY2F0aW9uLmhyZWYgKyBcIiNcIjtcbiAgbGV0IHJvb3Q7XG4gIGlmIChlbGVtZW50cy5sZW5ndGggPT09IDEpIHtcbiAgICByb290ID0gZWxlbWVudHNbMF0uY2xvbmVOb2RlKHRydWUpOyAvLyBvcHRpbWl6ZSBjb21tb24gY2FzZVxuICB9IGVsc2Uge1xuICAgIGNvbnN0IFtveCwgb3ksIGR4LCBkeV0gPSBnZXRCb3VuZHMoZWxlbWVudHMpO1xuICAgIHJvb3QgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50TlMoc3ZnbnMsIFwic3ZnXCIpO1xuICAgIHJvb3Quc2V0QXR0cmlidXRlKFwid2lkdGhcIiwgZHggKyAyICogcGFkZGluZyk7XG4gICAgcm9vdC5zZXRBdHRyaWJ1dGUoXCJoZWlnaHRcIiwgZHkgKyAyICogcGFkZGluZyk7XG4gICAgcm9vdC5zZXRBdHRyaWJ1dGUoXCJ2aWV3Qm94XCIsIFstcGFkZGluZywgLXBhZGRpbmcsIGR4ICsgMiAqIHBhZGRpbmcsIGR5ICsgMiAqIHBhZGRpbmddKTtcbiAgICBmb3IgKGNvbnN0IGVsZW1lbnQgb2YgZWxlbWVudHMpIHtcbiAgICAgIGNvbnN0IHN2ZyA9IHJvb3QuYXBwZW5kQ2hpbGQoZWxlbWVudC5jbG9uZU5vZGUodHJ1ZSkpO1xuICAgICAgY29uc3QgeyB4LCB5LCB3aWR0aCwgaGVpZ2h0IH0gPSBlbGVtZW50LmdldEJvdW5kaW5nQ2xpZW50UmVjdCgpO1xuICAgICAgc3ZnLnNldEF0dHJpYnV0ZShcInhcIiwgeCAtIG94KTtcbiAgICAgIHN2Zy5zZXRBdHRyaWJ1dGUoXCJ5XCIsIHkgLSBveSk7XG4gICAgICBzdmcuc2V0QXR0cmlidXRlKFwid2lkdGhcIiwgd2lkdGgpO1xuICAgICAgc3ZnLnNldEF0dHJpYnV0ZShcImhlaWdodFwiLCBoZWlnaHQpO1xuICAgIH1cbiAgfVxuICBjb25zdCB3YWxrZXIgPSBkb2N1bWVudC5jcmVhdGVUcmVlV2Fsa2VyKHJvb3QsIE5vZGVGaWx0ZXIuU0hPV19FTEVNRU5UKTtcbiAgd2hpbGUgKHdhbGtlci5uZXh0Tm9kZSgpKSB7XG4gICAgY29uc3Qgbm9kZSA9IHdhbGtlci5jdXJyZW50Tm9kZTtcbiAgICBmb3IgKGNvbnN0IGF0dHIgb2Ygbm9kZS5hdHRyaWJ1dGVzKSB7XG4gICAgICBpZiAoYXR0ci52YWx1ZS5pbmNsdWRlcyhmcmFnbWVudCkpIHtcbiAgICAgICAgYXR0ci52YWx1ZSA9IGF0dHIudmFsdWUucmVwbGFjZShmcmFnbWVudCwgXCIjXCIpO1xuICAgICAgfVxuICAgIH1cbiAgfVxuICByb290LnNldEF0dHJpYnV0ZU5TKHhtbG5zLCBcInhtbG5zXCIsIHN2Z25zKTtcbiAgcm9vdC5zZXRBdHRyaWJ1dGVOUyh4bWxucywgXCJ4bWxuczp4bGlua1wiLCB4bGlua25zKTtcbiAgY29uc3Qgc2VyaWFsaXplciA9IG5ldyBYTUxTZXJpYWxpemVyKCk7XG4gIGNvbnN0IHN0cmluZyA9IHNlcmlhbGl6ZXIuc2VyaWFsaXplVG9TdHJpbmcocm9vdCk7XG4gIHJldHVybiBuZXcgQmxvYihbc3RyaW5nXSwgeyB0eXBlOiBcImltYWdlL3N2Zyt4bWxcIiB9KTtcbn1cblxuXG5mdW5jdGlvbiBnZXRCb3VuZHMoZWxlbWVudHMpIHtcbiAgbGV0IHgxID0gSW5maW5pdHk7XG4gIGxldCB5MSA9IHgxO1xuICBsZXQgeDIgPSAteDE7XG4gIGxldCB5MiA9IHgyO1xuICBmb3IgKGNvbnN0IGVsZW1lbnQgb2YgZWxlbWVudHMpIHtcbiAgICBjb25zdCB7IHgsIHksIHdpZHRoLCBoZWlnaHQgfSA9IGVsZW1lbnQuZ2V0Qm91bmRpbmdDbGllbnRSZWN0KCk7XG4gICAgaWYgKHggPCB4MSkgeDEgPSB4O1xuICAgIGlmICh4ICsgd2lkdGggPiB4MikgeDIgPSB4ICsgd2lkdGg7XG4gICAgaWYgKHkgPCB5MSkgeTEgPSB5O1xuICAgIGlmICh5ICsgaGVpZ2h0ID4geTIpIHkyID0geSArIGhlaWdodDtcbiAgfVxuICByZXR1cm4gW3gxLCB5MSwgeDIgLSB4MSwgeTIgLSB5MV07XG59XG5cbi8vIGJhc2VkIG9uIGh0dHBzOi8vb2JzZXJ2YWJsZWhxLmNvbS9AZ2thL2NoZWFwLWZpdC10ZXh0LXRvLWNpcmNsZVxuZnVuY3Rpb24gbGluZXModGV4dCwgdGFyZ2V0V2lkdGgpIHtcbiAgY29uc3QgQ0hBUl9XID0ge1xuICAgIFwiYVwiOjcsXCJCXCI6OCxcIkNcIjo4LFwiY1wiOjYsXCJEXCI6OSxcImZcIjo0LFwiR1wiOjksXCJIXCI6OSxcIklcIjozLFwiaVwiOjMsXCJKXCI6NSxcImpcIjozLFwiS1wiOjgsXCJrXCI6NixcbiAgICBcImxcIjozLFwiTVwiOjExLFwibVwiOjExLFwiTlwiOjksXCJPXCI6OSxcIlBcIjo4LFwiUVwiOjksXCJSXCI6OCxcInJcIjo0LFwiU1wiOjgsXCJzXCI6NixcInRcIjo0LFwiVVwiOjksXCJ2XCI6NixcbiAgICBcIldcIjoxMSxcIndcIjo5LFwieFwiOjYsXCJ5XCI6NixcInpcIjo1LFwiLlwiOjIsXCIsXCI6MixcIjpcIjoyLFwiO1wiOjJcbiAgfTtcbiAgZnVuY3Rpb24gbWVhc3VyZVdpZHRoKHRleHQpIHsgcmV0dXJuICBkMy5zdW0odGV4dCwgY2hhciA9PiBDSEFSX1dbY2hhcl0gfHwgQ0hBUl9XW1wiYVwiXSkgKiAwLjg7IH07XG5cbiAgY29uc3Qgd29yZHMgPSB0ZXh0LnNwbGl0KFwiIFwiKTtcbiAgbGV0IGxpbmU7XG4gIGxldCBsaW5lV2lkdGgwID0gSW5maW5pdHk7XG4gIGNvbnN0IGxpbmVzID0gW107XG4gIGZvciAobGV0IGkgPSAwLCBuID0gd29yZHMubGVuZ3RoOyBpIDwgbjsgKytpKSB7XG4gICAgbGV0IGxpbmVUZXh0MSA9IChsaW5lID8gbGluZS50ZXh0ICsgXCIgXCIgOiBcIlwiKSArIHdvcmRzW2ldO1xuICAgIGxldCBsaW5lV2lkdGgxID0gbWVhc3VyZVdpZHRoKGxpbmVUZXh0MSk7XG4gICAgaWYgKChsaW5lV2lkdGgwICsgbGluZVdpZHRoMSkgLyAyIDwgdGFyZ2V0V2lkdGgpIHtcbiAgICAgIGxpbmUud2lkdGggPSBsaW5lV2lkdGgwID0gbGluZVdpZHRoMTtcbiAgICAgIGxpbmUudGV4dCA9IGxpbmVUZXh0MTtcbiAgICB9IGVsc2Uge1xuICAgICAgbGluZVdpZHRoMCA9IG1lYXN1cmVXaWR0aCh3b3Jkc1tpXSk7XG4gICAgICBsaW5lID0ge3dpZHRoOiBsaW5lV2lkdGgwLCB0ZXh0OiB3b3Jkc1tpXX07XG4gICAgICBsaW5lcy5wdXNoKGxpbmUpO1xuICAgIH1cbiAgfVxuICByZXR1cm4gbGluZXM7XG59XG5cbnhtbG5zID0gXCJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3htbG5zL1wiXG5cbnhsaW5rbnMgPSBcImh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmtcIlxuXG5zdmducyA9IFwiaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmdcIlxuXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcblxuLy8gQ29weXJpZ2h0IDIwMjEsIE9ic2VydmFibGUgSW5jLlxuLy8gUmVsZWFzZWQgdW5kZXIgdGhlIElTQyBsaWNlbnNlLlxuLy8gaHR0cHM6Ly9vYnNlcnZhYmxlaHEuY29tL0BkMy9jb2xvci1sZWdlbmRcbmZ1bmN0aW9uIExlZ2VuZChjb2xvciwge1xuICB0aXRsZSxcbiAgdGlja1NpemUgPSA2LFxuICB3aWR0aCA9IDMyMCwgXG4gIGhlaWdodCA9IDQ0ICsgdGlja1NpemUsXG4gIG1hcmdpblRvcCA9IDE4LFxuICBtYXJnaW5SaWdodCA9IDAsXG4gIG1hcmdpbkJvdHRvbSA9IDE2ICsgdGlja1NpemUsXG4gIG1hcmdpbkxlZnQgPSAwLFxuICB0aWNrcyA9IHdpZHRoIC8gNjQsXG4gIHRpY2tGb3JtYXQsXG4gIHRpY2tWYWx1ZXNcbn0gPSB7fSkge1xuXG4gIGZ1bmN0aW9uIHJhbXAoY29sb3IsIG4gPSAyNTYpIHtcbiAgICBjb25zdCBjYW52YXMgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiY2FudmFzXCIpO1xuICAgIGNhbnZhcy53aWR0aCA9IG47XG4gICAgY2FudmFzLmhlaWdodCA9IDE7XG4gICAgY29uc3QgY29udGV4dCA9IGNhbnZhcy5nZXRDb250ZXh0KFwiMmRcIik7XG4gICAgZm9yIChsZXQgaSA9IDA7IGkgPCBuOyArK2kpIHtcbiAgICAgIGNvbnRleHQuZmlsbFN0eWxlID0gY29sb3IoaSAvIChuIC0gMSkpO1xuICAgICAgY29udGV4dC5maWxsUmVjdChpLCAwLCAxLCAxKTtcbiAgICB9XG4gICAgcmV0dXJuIGNhbnZhcztcbiAgfVxuXG4gIGNvbnN0IHN2ZyA9IGQzLmNyZWF0ZShcInN2Z1wiKVxuICAgICAgLmF0dHIoXCJ3aWR0aFwiLCB3aWR0aClcbiAgICAgIC5hdHRyKFwiaGVpZ2h0XCIsIGhlaWdodClcbiAgICAgIC5hdHRyKFwidmlld0JveFwiLCBbMCwgMCwgd2lkdGgsIGhlaWdodF0pXG4gICAgICAuc3R5bGUoXCJvdmVyZmxvd1wiLCBcInZpc2libGVcIilcbiAgICAgIC5zdHlsZShcImRpc3BsYXlcIiwgXCJibG9ja1wiKTtcblxuICBsZXQgdGlja0FkanVzdCA9IGcgPT4gZy5zZWxlY3RBbGwoXCIudGljayBsaW5lXCIpLmF0dHIoXCJ5MVwiLCBtYXJnaW5Ub3AgKyBtYXJnaW5Cb3R0b20gLSBoZWlnaHQpO1xuICBsZXQgeDtcblxuICAvLyBDb250aW51b3VzXG4gIGlmIChjb2xvci5pbnRlcnBvbGF0ZSkge1xuICAgIGNvbnN0IG4gPSBNYXRoLm1pbihjb2xvci5kb21haW4oKS5sZW5ndGgsIGNvbG9yLnJhbmdlKCkubGVuZ3RoKTtcblxuICAgIHggPSBjb2xvci5jb3B5KCkucmFuZ2VSb3VuZChkMy5xdWFudGl6ZShkMy5pbnRlcnBvbGF0ZShtYXJnaW5MZWZ0LCB3aWR0aCAtIG1hcmdpblJpZ2h0KSwgbikpO1xuXG4gICAgc3ZnLmFwcGVuZChcImltYWdlXCIpXG4gICAgICAgIC5hdHRyKFwieFwiLCBtYXJnaW5MZWZ0KVxuICAgICAgICAuYXR0cihcInlcIiwgbWFyZ2luVG9wKVxuICAgICAgICAuYXR0cihcIndpZHRoXCIsIHdpZHRoIC0gbWFyZ2luTGVmdCAtIG1hcmdpblJpZ2h0KVxuICAgICAgICAuYXR0cihcImhlaWdodFwiLCBoZWlnaHQgLSBtYXJnaW5Ub3AgLSBtYXJnaW5Cb3R0b20pXG4gICAgICAgIC5hdHRyKFwicHJlc2VydmVBc3BlY3RSYXRpb1wiLCBcIm5vbmVcIilcbiAgICAgICAgLmF0dHIoXCJ4bGluazpocmVmXCIsIHJhbXAoY29sb3IuY29weSgpLmRvbWFpbihkMy5xdWFudGl6ZShkMy5pbnRlcnBvbGF0ZSgwLCAxKSwgbikpKS50b0RhdGFVUkwoKSk7XG4gIH1cblxuICAvLyBTZXF1ZW50aWFsXG4gIGVsc2UgaWYgKGNvbG9yLmludGVycG9sYXRvcikge1xuICAgIHggPSBPYmplY3QuYXNzaWduKGNvbG9yLmNvcHkoKVxuICAgICAgICAuaW50ZXJwb2xhdG9yKGQzLmludGVycG9sYXRlUm91bmQobWFyZ2luTGVmdCwgd2lkdGggLSBtYXJnaW5SaWdodCkpLFxuICAgICAgICB7cmFuZ2UoKSB7IHJldHVybiBbbWFyZ2luTGVmdCwgd2lkdGggLSBtYXJnaW5SaWdodF07IH19KTtcblxuICAgIHN2Zy5hcHBlbmQoXCJpbWFnZVwiKVxuICAgICAgICAuYXR0cihcInhcIiwgbWFyZ2luTGVmdClcbiAgICAgICAgLmF0dHIoXCJ5XCIsIG1hcmdpblRvcClcbiAgICAgICAgLmF0dHIoXCJ3aWR0aFwiLCB3aWR0aCAtIG1hcmdpbkxlZnQgLSBtYXJnaW5SaWdodClcbiAgICAgICAgLmF0dHIoXCJoZWlnaHRcIiwgaGVpZ2h0IC0gbWFyZ2luVG9wIC0gbWFyZ2luQm90dG9tKVxuICAgICAgICAuYXR0cihcInByZXNlcnZlQXNwZWN0UmF0aW9cIiwgXCJub25lXCIpXG4gICAgICAgIC5hdHRyKFwieGxpbms6aHJlZlwiLCByYW1wKGNvbG9yLmludGVycG9sYXRvcigpKS50b0RhdGFVUkwoKSk7XG5cbiAgICAvLyBzY2FsZVNlcXVlbnRpYWxRdWFudGlsZSBkb2VzbuKAmXQgaW1wbGVtZW50IHRpY2tzIG9yIHRpY2tGb3JtYXQuXG4gICAgaWYgKCF4LnRpY2tzKSB7XG4gICAgICBpZiAodGlja1ZhbHVlcyA9PT0gdW5kZWZpbmVkKSB7XG4gICAgICAgIGNvbnN0IG4gPSBNYXRoLnJvdW5kKHRpY2tzICsgMSk7XG4gICAgICAgIHRpY2tWYWx1ZXMgPSBkMy5yYW5nZShuKS5tYXAoaSA9PiBkMy5xdWFudGlsZShjb2xvci5kb21haW4oKSwgaSAvIChuIC0gMSkpKTtcbiAgICAgIH1cbiAgICAgIGlmICh0eXBlb2YgdGlja0Zvcm1hdCAhPT0gXCJmdW5jdGlvblwiKSB7XG4gICAgICAgIHRpY2tGb3JtYXQgPSBkMy5mb3JtYXQodGlja0Zvcm1hdCA9PT0gdW5kZWZpbmVkID8gXCIsZlwiIDogdGlja0Zvcm1hdCk7XG4gICAgICB9XG4gICAgfVxuICB9XG5cbiAgLy8gVGhyZXNob2xkXG4gIGVsc2UgaWYgKGNvbG9yLmludmVydEV4dGVudCkge1xuICAgIGNvbnN0IHRocmVzaG9sZHNcbiAgICAgICAgPSBjb2xvci50aHJlc2hvbGRzID8gY29sb3IudGhyZXNob2xkcygpIC8vIHNjYWxlUXVhbnRpemVcbiAgICAgICAgOiBjb2xvci5xdWFudGlsZXMgPyBjb2xvci5xdWFudGlsZXMoKSAvLyBzY2FsZVF1YW50aWxlXG4gICAgICAgIDogY29sb3IuZG9tYWluKCk7IC8vIHNjYWxlVGhyZXNob2xkXG5cbiAgICBjb25zdCB0aHJlc2hvbGRGb3JtYXRcbiAgICAgICAgPSB0aWNrRm9ybWF0ID09PSB1bmRlZmluZWQgPyBkID0+IGRcbiAgICAgICAgOiB0eXBlb2YgdGlja0Zvcm1hdCA9PT0gXCJzdHJpbmdcIiA/IGQzLmZvcm1hdCh0aWNrRm9ybWF0KVxuICAgICAgICA6IHRpY2tGb3JtYXQ7XG5cbiAgICB4ID0gZDMuc2NhbGVMaW5lYXIoKVxuICAgICAgICAuZG9tYWluKFstMSwgY29sb3IucmFuZ2UoKS5sZW5ndGggLSAxXSlcbiAgICAgICAgLnJhbmdlUm91bmQoW21hcmdpbkxlZnQsIHdpZHRoIC0gbWFyZ2luUmlnaHRdKTtcblxuICAgIHN2Zy5hcHBlbmQoXCJnXCIpXG4gICAgICAuc2VsZWN0QWxsKFwicmVjdFwiKVxuICAgICAgLmRhdGEoY29sb3IucmFuZ2UoKSlcbiAgICAgIC5qb2luKFwicmVjdFwiKVxuICAgICAgICAuYXR0cihcInhcIiwgKGQsIGkpID0+IHgoaSAtIDEpKVxuICAgICAgICAuYXR0cihcInlcIiwgbWFyZ2luVG9wKVxuICAgICAgICAuYXR0cihcIndpZHRoXCIsIChkLCBpKSA9PiB4KGkpIC0geChpIC0gMSkpXG4gICAgICAgIC5hdHRyKFwiaGVpZ2h0XCIsIGhlaWdodCAtIG1hcmdpblRvcCAtIG1hcmdpbkJvdHRvbSlcbiAgICAgICAgLmF0dHIoXCJmaWxsXCIsIGQgPT4gZCk7XG5cbiAgICB0aWNrVmFsdWVzID0gZDMucmFuZ2UodGhyZXNob2xkcy5sZW5ndGgpO1xuICAgIHRpY2tGb3JtYXQgPSBpID0+IHRocmVzaG9sZEZvcm1hdCh0aHJlc2hvbGRzW2ldLCBpKTtcbiAgfVxuXG4gIC8vIE9yZGluYWxcbiAgZWxzZSB7XG4gICAgeCA9IGQzLnNjYWxlQmFuZCgpXG4gICAgICAgIC5kb21haW4oY29sb3IuZG9tYWluKCkpXG4gICAgICAgIC5yYW5nZVJvdW5kKFttYXJnaW5MZWZ0LCB3aWR0aCAtIG1hcmdpblJpZ2h0XSk7XG5cbiAgICBzdmcuYXBwZW5kKFwiZ1wiKVxuICAgICAgLnNlbGVjdEFsbChcInJlY3RcIilcbiAgICAgIC5kYXRhKGNvbG9yLmRvbWFpbigpKVxuICAgICAgLmpvaW4oXCJyZWN0XCIpXG4gICAgICAgIC5hdHRyKFwieFwiLCB4KVxuICAgICAgICAuYXR0cihcInlcIiwgbWFyZ2luVG9wKVxuICAgICAgICAuYXR0cihcIndpZHRoXCIsIE1hdGgubWF4KDAsIHguYmFuZHdpZHRoKCkgLSAxKSlcbiAgICAgICAgLmF0dHIoXCJoZWlnaHRcIiwgaGVpZ2h0IC0gbWFyZ2luVG9wIC0gbWFyZ2luQm90dG9tKVxuICAgICAgICAuYXR0cihcImZpbGxcIiwgY29sb3IpO1xuXG4gICAgdGlja0FkanVzdCA9ICgpID0+IHt9O1xuICB9XG5cbiAgc3ZnLmFwcGVuZChcImdcIilcbiAgICAgIC5hdHRyKFwidHJhbnNmb3JtXCIsIGB0cmFuc2xhdGUoMCwke2hlaWdodCAtIG1hcmdpbkJvdHRvbX0pYClcbiAgICAgIC5jYWxsKGQzLmF4aXNCb3R0b20oeClcbiAgICAgICAgLnRpY2tzKHRpY2tzLCB0eXBlb2YgdGlja0Zvcm1hdCA9PT0gXCJzdHJpbmdcIiA/IHRpY2tGb3JtYXQgOiB1bmRlZmluZWQpXG4gICAgICAgIC50aWNrRm9ybWF0KHR5cGVvZiB0aWNrRm9ybWF0ID09PSBcImZ1bmN0aW9uXCIgPyB0aWNrRm9ybWF0IDogdW5kZWZpbmVkKVxuICAgICAgICAudGlja1NpemUodGlja1NpemUpXG4gICAgICAgIC50aWNrVmFsdWVzKHRpY2tWYWx1ZXMpKVxuICAgICAgLmNhbGwodGlja0FkanVzdClcbiAgICAgIC5jYWxsKGcgPT4gZy5zZWxlY3QoXCIuZG9tYWluXCIpLnJlbW92ZSgpKVxuICAgICAgLmNhbGwoZyA9PiBnLmFwcGVuZChcInRleHRcIilcbiAgICAgICAgLmF0dHIoXCJ4XCIsIG1hcmdpbkxlZnQpXG4gICAgICAgIC5hdHRyKFwieVwiLCBtYXJnaW5Ub3AgKyBtYXJnaW5Cb3R0b20gLSBoZWlnaHQgLSA2KVxuICAgICAgICAuYXR0cihcImZpbGxcIiwgXCJjdXJyZW50Q29sb3JcIilcbiAgICAgICAgLmF0dHIoXCJ0ZXh0LWFuY2hvclwiLCBcInN0YXJ0XCIpXG4gICAgICAgIC5hdHRyKFwiZm9udC13ZWlnaHRcIiwgXCJib2xkXCIpXG4gICAgICAgIC5zdHlsZShcImZvbnQtc2l6ZVwiLCBcIjEycHhcIilcbiAgICAgICAgLmF0dHIoXCJjbGFzc1wiLCBcInRpdGxlXCIpXG4gICAgICAgIC50ZXh0KHRpdGxlKSk7XG5cbiAgcmV0dXJuIHN2Zy5ub2RlKCk7XG59XG5cblxuZnVuY3Rpb24gbGVnZW5kKHtjb2xvciwgLi4ub3B0aW9uc30pIHtcbiAgcmV0dXJuIExlZ2VuZChjb2xvciwgb3B0aW9ucyk7XG59XG5cblxuLy8gQ29weXJpZ2h0IDIwMjEsIE9ic2VydmFibGUgSW5jLlxuLy8gUmVsZWFzZWQgdW5kZXIgdGhlIElTQyBsaWNlbnNlLlxuLy8gaHR0cHM6Ly9vYnNlcnZhYmxlaHEuY29tL0BkMy9jb2xvci1sZWdlbmRcbmZ1bmN0aW9uIFN3YXRjaGVzKGNvbG9yLCB7XG4gIGNvbHVtbnMgPSBudWxsLFxuICBmb3JtYXQsXG4gIHVua25vd246IGZvcm1hdFVua25vd24sXG4gIHN3YXRjaFNpemUgPSAxNSxcbiAgc3dhdGNoV2lkdGggPSBzd2F0Y2hTaXplLFxuICBzd2F0Y2hIZWlnaHQgPSBzd2F0Y2hTaXplLFxuICBtYXJnaW5MZWZ0ID0gMFxufSA9IHt9KSB7XG4gIGNvbnN0IGlkID0gYC1zd2F0Y2hlcy0ke01hdGgucmFuZG9tKCkudG9TdHJpbmcoMTYpLnNsaWNlKDIpfWA7XG4gIGNvbnN0IHVua25vd24gPSBmb3JtYXRVbmtub3duID09IG51bGwgPyB1bmRlZmluZWQgOiBjb2xvci51bmtub3duKCk7XG4gIGNvbnN0IHVua25vd25zID0gdW5rbm93biA9PSBudWxsIHx8IHVua25vd24gPT09IGQzLnNjYWxlSW1wbGljaXQgPyBbXSA6IFt1bmtub3duXTtcbiAgY29uc3QgZG9tYWluID0gY29sb3IuZG9tYWluKCkuY29uY2F0KHVua25vd25zKTtcbiAgaWYgKGZvcm1hdCA9PT0gdW5kZWZpbmVkKSBmb3JtYXQgPSB4ID0+IHggPT09IHVua25vd24gPyBmb3JtYXRVbmtub3duIDogeDtcblxuICBmdW5jdGlvbiBlbnRpdHkoY2hhcmFjdGVyKSB7XG4gICAgcmV0dXJuIGAmIyR7Y2hhcmFjdGVyLmNoYXJDb2RlQXQoMCkudG9TdHJpbmcoKX07YDtcbiAgfVxuXG4gIGlmIChjb2x1bW5zICE9PSBudWxsKSByZXR1cm4gaHRsLmh0bWxgPGRpdiBzdHlsZT1cImRpc3BsYXk6IGZsZXg7IGFsaWduLWl0ZW1zOiBjZW50ZXI7IG1hcmdpbi1sZWZ0OiAkeyttYXJnaW5MZWZ0fXB4OyBtaW4taGVpZ2h0OiAzM3B4OyBmb250OiAxMnB4IHNhbnMtc2VyaWY7XCI+XG4gIDxzdHlsZT5cblxuLiR7aWR9LWl0ZW0ge1xuICBicmVhay1pbnNpZGU6IGF2b2lkO1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBwYWRkaW5nLWJvdHRvbTogMXB4O1xufVxuXG4uJHtpZH0tbGFiZWwge1xuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcbiAgbWF4LXdpZHRoOiBjYWxjKDEwMCUgLSAkeytzd2F0Y2hXaWR0aH1weCAtIDAuNWVtKTtcbn1cblxuLiR7aWR9LXN3YXRjaCB7XG4gIHdpZHRoOiAkeytzd2F0Y2hXaWR0aH1weDtcbiAgaGVpZ2h0OiAkeytzd2F0Y2hIZWlnaHR9cHg7XG4gIG1hcmdpbjogMCAwLjVlbSAwIDA7XG59XG5cbiAgPC9zdHlsZT5cbiAgPGRpdiBzdHlsZT0ke3t3aWR0aDogXCIxMDAlXCIsIGNvbHVtbnN9fT4ke2RvbWFpbi5tYXAodmFsdWUgPT4ge1xuICAgIGNvbnN0IGxhYmVsID0gYCR7Zm9ybWF0KHZhbHVlKX1gO1xuICAgIHJldHVybiBodGwuaHRtbGA8ZGl2IGNsYXNzPSR7aWR9LWl0ZW0+XG4gICAgICA8ZGl2IGNsYXNzPSR7aWR9LXN3YXRjaCBzdHlsZT0ke3tiYWNrZ3JvdW5kOiBjb2xvcih2YWx1ZSl9fT48L2Rpdj5cbiAgICAgIDxkaXYgY2xhc3M9JHtpZH0tbGFiZWwgdGl0bGU9JHtsYWJlbH0+JHtsYWJlbH08L2Rpdj5cbiAgICA8L2Rpdj5gO1xuICB9KX1cbiAgPC9kaXY+XG48L2Rpdj5gO1xuXG4gIHJldHVybiBodGwuaHRtbGA8ZGl2IHN0eWxlPVwiZGlzcGxheTogZmxleDsgYWxpZ24taXRlbXM6IGNlbnRlcjsgbWluLWhlaWdodDogMzNweDsgbWFyZ2luLWxlZnQ6ICR7K21hcmdpbkxlZnR9cHg7IGZvbnQ6IDEycHggc2Fucy1zZXJpZjtcIj5cbiAgPHN0eWxlPlxuXG4uJHtpZH0ge1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgbWFyZ2luLXJpZ2h0OiAxZW07XG59XG5cbi4ke2lkfTo6YmVmb3JlIHtcbiAgY29udGVudDogXCJcIjtcbiAgd2lkdGg6ICR7K3N3YXRjaFdpZHRofXB4O1xuICBoZWlnaHQ6ICR7K3N3YXRjaEhlaWdodH1weDtcbiAgbWFyZ2luLXJpZ2h0OiAwLjVlbTtcbiAgYmFja2dyb3VuZDogdmFyKC0tY29sb3IpO1xufVxuXG4gIDwvc3R5bGU+XG4gIDxkaXY+JHtkb21haW4ubWFwKHZhbHVlID0+IGh0bC5odG1sYDxzcGFuIGNsYXNzPVwiJHtpZH1cIiBzdHlsZT1cIi0tY29sb3I6ICR7Y29sb3IodmFsdWUpfVwiPiR7Zm9ybWF0KHZhbHVlKX08L3NwYW4+YCl9PC9kaXY+YDtcbn1cblxuZnVuY3Rpb24gc3dhdGNoZXMoe2NvbG9yLCAuLi5vcHRpb25zfSkge1xuICByZXR1cm4gU3dhdGNoZXMoY29sb3IsIG9wdGlvbnMpO1xufVxuXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcblxuY2hhcnRfbWFwX2QzID0gZnVuY3Rpb24oZGF0YSwgbWFwVG9wb0pTT04sIGNvbG9yLCBjb2xvckJvcmRlciwgdHh0VGl0bGUsIGNoYXJ0X3dpZHRoLCBjaGFydF9oZWlnaHQpIHtcblxuICBjb25zdCBwcm9qZWN0aW9uID0gZDMuZ2VvTWVyY2F0b3IoKVxuICAuc2NhbGUoMTIwMClcbiAgLy8uY2VudGVyKFs0MCwgNjcuNV0pXG4gIC5jZW50ZXIoWzQwLCA2Ny4zXSlcbiAgLnRyYW5zbGF0ZShbNDAwLCAyMjBdKVxuICBjb25zdCBwYXRoID0gZDMuZ2VvUGF0aCgpLnByb2plY3Rpb24ocHJvamVjdGlvbik7XG4gIGNvbnN0IGZvcm1hdCA9IGQgPT4gYCR7ZH0lYDtcbiAgXG4gIC8vTcOkw6RyaXRlbGzDpMOkbiB0w6Row6RuIG11dXR0dWphdCBDU1Y6c3TDpCEhISEhIVxuICBjb25zdCB2YWx1ZW1hcCA9IG5ldyBNYXAoZGF0YS5tYXAoZCA9PiBbZC5pZCwgZC5tdXV0b3NdKSk7XG4gIFxuICAvL03DpMOkcml0ZWxsw6TDpG4gbWFha3VubmF0XG4gIGNvbnN0IG1hYWt1bnRhbWVzaCA9IHRvcG9qc29uLm1lc2gobWFha3VubmF0XzIwMjRfdG9wbywgbWFha3VubmF0XzIwMjRfdG9wby5vYmplY3RzLm1hYWt1bm5hdF8yMDI0LCAoYSwgYikgPT4gYSAhPT0gYik7XG4gIFxuICBjb25zdCB6b29tID0gZDMuem9vbSgpXG4gICAgICAuc2NhbGVFeHRlbnQoWzEsIDhdKVxuICAgICAgLm9uKFwiem9vbVwiLCB6b29tZWQpO1xuXG4gIGNvbnN0IHN2ZyA9IGQzLmNyZWF0ZShcInN2Z1wiKVxuICAgICAgLmF0dHIoXCJ3aWR0aFwiLCA5MDApXG4gICAgICAuYXR0cihcImhlaWdodFwiLCA2NTApXG4gICAgICAuYXR0cihcInZpZXdCb3hcIiwgWzAsIDAsIDkwMCwgNjUwXSlcbiAgICAgIC5vbihcImNsaWNrXCIsIHJlc2V0KTtcbiAgICAgIFxuICBjb25zdCBnID0gc3ZnLmFwcGVuZChcImdcIilcbiAgICAgIC5hdHRyKFwidHJhbnNmb3JtXCIsIFwidHJhbnNsYXRlKDIwLDM1KVwiKVxuICAgICAgLmFwcGVuZCgoKSA9PiBMZWdlbmQoY29sb3IsIHt0aXRsZTogdHh0VGl0bGUsIHdpZHRoOiAyNjB9KSk7XG5cbiAgZy5hcHBlbmQoXCJnXCIpXG4gICAgLnNlbGVjdEFsbChcInBhdGhcIilcbiAgICAuZGF0YShtYXBUb3BvSlNPTilcbiAgICAuam9pbihcInBhdGhcIilcbiAgICAgIC5hdHRyKFwiZmlsbFwiLCBkID0+IGNvbG9yKHZhbHVlbWFwLmdldChkLnByb3BlcnRpZXMua3VudGEpKSkgXG4gICAgICAuYXR0cihcImRcIiwgcGF0aClcbiAgICAuYXBwZW5kKFwidGl0bGVcIilcbiAgICAgIC50ZXh0KGQgPT4gYCR7ZC5wcm9wZXJ0aWVzLm5hbWV9LFxcbigke2QucHJvcGVydGllcy5uaW1pXzJ9KSxcXG4ke3ZhbHVlbWFwLmdldChkLnByb3BlcnRpZXMua3VudGEpfWApO1xuICAgICAgXG4gIGcuYXBwZW5kKFwicGF0aFwiKVxuICAgICAgLmRhdHVtKG1hYWt1bnRhbWVzaClcbiAgICAgIC5hdHRyKFwiZmlsbFwiLCBcIm5vbmVcIilcbiAgICAgIC5hdHRyKFwic3Ryb2tlXCIsIGNvbG9yQm9yZGVyKVxuICAgICAgLmF0dHIoXCJzdHJva2UtbGluZWpvaW5cIiwgXCJyb3VuZFwiKVxuICAgICAgLmF0dHIoXCJkXCIsIHBhdGgpO1xuICAgICAgXG4gICBzdmcuY2FsbCh6b29tKTtcbiAgIFxuXG4gIGZ1bmN0aW9uIHJlc2V0KCkge1xuICAgIC8vIHN0YXRlcy50cmFuc2l0aW9uKCkuc3R5bGUoXCJmaWxsXCIsIG51bGwpO1xuICAgIHN2Zy50cmFuc2l0aW9uKCkuZHVyYXRpb24oNzUwKS5jYWxsKFxuICAgICAgem9vbS50cmFuc2Zvcm0sXG4gICAgICBkMy56b29tSWRlbnRpdHksXG4gICAgICBkMy56b29tVHJhbnNmb3JtKHN2Zy5ub2RlKCkpLmludmVydChbY2hhcnRfd2lkdGggLyAyLCBjaGFydF9oZWlnaHQgLyAyXSlcbiAgICApO1xuICB9XG5cbiAgZnVuY3Rpb24gem9vbWVkKGV2ZW50KSB7XG4gICAgY29uc3Qge3RyYW5zZm9ybX0gPSBldmVudDtcbiAgICBnLmF0dHIoXCJ0cmFuc2Zvcm1cIiwgdHJhbnNmb3JtKTtcbiAgICBnLmF0dHIoXCJzdHJva2Utd2lkdGhcIiwgMSAvIHRyYW5zZm9ybS5rKTtcbiAgfSAgICAgXG4gICAgICBcbiAgcmV0dXJuIHN2Zy5ub2RlKCk7XG59XG5cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuY2hhcnRfY2hvcmRfZDMgPSBmdW5jdGlvbihkYXRhLCB0aXRsZV90eHRfY2hvcmQsIGNoYXJ0X3dpZHRoLCBjaGFydF9oZWlnaHQpIHtcblxuICB2YXIgc3VtX3RhcmdldDtcbiAgdmFyIHN1bV9zb3VyY2U7XG4gIGxldCB2YXJpO1xuICB2YXIgc3VtX3lodDtcbiAgXG4gIGNvbnN0IG1hcmdpbiA9ICh7dG9wOiAyMCwgcmlnaHQ6IDIwLCBib3R0b206IDAsIGxlZnQ6IDUwfSk7XG4gIGNvbnN0IHdpZHRoID0gMzAwO1xuICBjb25zdCBoZWlnaHQgPSB3aWR0aDtcbiAgY29uc3QgaW5uZXJSYWRpdXMgPSBNYXRoLm1pbih3aWR0aCwgaGVpZ2h0KSAqIC4zIC0gNDA7XG4gIGNvbnN0IG91dGVyUmFkaXVzID0gaW5uZXJSYWRpdXMgKyAxNTtcbiAgXG4gIFxuICBjb25zdCBjaG9yZCA9IGQzLmNob3JkRGlyZWN0ZWQoKVxuICAgIC5wYWRBbmdsZSgwLjUgLyBpbm5lclJhZGl1cylcbiAgICAuc29ydFN1Ymdyb3VwcyhkMy5hc2NlbmRpbmcpXG4gICAgLnNvcnRDaG9yZHMoZDMuYXNjZW5kaW5nKTtcbiAgICBcbiAgY29uc3QgcmliYm9uID0gZDMucmliYm9uKClcbiAgICAucmFkaXVzKGlubmVyUmFkaXVzIC0gMSlcbiAgICAucGFkQW5nbGUoMC41IC8gaW5uZXJSYWRpdXMpO1xuICAgIFxuICBjb25zdCByZW5hbWUgPSBuYW1lID0+IG5hbWUuc3Vic3RyaW5nKG5hbWUuaW5kZXhPZihcIi5cIikgKyAxLCBuYW1lLmxhc3RJbmRleE9mKFwiLlwiKSlcbiAgY29uc3QgbmFtZXMgPSBBcnJheS5mcm9tKG5ldyBTZXQoZGF0YS5mbGF0TWFwKGQgPT4gW2Quc291cmNlLCBkLnRhcmdldF0pKSkuc29ydChkMy5hc2NlbmRpbmcpO1xuICBcbiAgZnVuY3Rpb24gbWF0cmlpc2kobmFtZXMpIHtcbiAgICBjb25zdCBpbmRleCA9IG5ldyBNYXAobmFtZXMubWFwKChuYW1lLCBpKSA9PiBbbmFtZSwgaV0pKTtcbiAgICBjb25zdCBtYXRyaXggPSBBcnJheS5mcm9tKGluZGV4LCAoKSA9PiBuZXcgQXJyYXkobmFtZXMubGVuZ3RoKS5maWxsKDApKTtcbiAgICBmb3IgKGNvbnN0IHtzb3VyY2UsIHRhcmdldCwgdmFsdWV9IG9mIGRhdGEpIG1hdHJpeFtpbmRleC5nZXQoc291cmNlKV1baW5kZXguZ2V0KHRhcmdldCldICs9IHZhbHVlO1xuICAgIHJldHVybiBtYXRyaXg7XG4gIH1cblxuIGNvbnN0IG1hdHJpeCA9IG1hdHJpaXNpKG5hbWVzKVxuICBcbiBjb25zdCBhcmMgPSBkMy5hcmMoKVxuICAgIC5pbm5lclJhZGl1cyhpbm5lclJhZGl1cylcbiAgICAub3V0ZXJSYWRpdXMob3V0ZXJSYWRpdXMpXG5cbiAgLy9Uw4RTVMOEIEFMS0FBIFBJSVJST1NcbiAgXG4gIGNvbnN0IHpvb20gPSBkMy56b29tKClcbiAgICAgIC5zY2FsZUV4dGVudChbMSwgOF0pXG4gICAgICAub24oXCJ6b29tXCIsIHpvb21lZCk7XG4gIFxuICBjb25zdCBzdmcgPSBkMy5jcmVhdGUoXCJzdmdcIilcbiAgICAgIC5hdHRyKFwidmlld0JveFwiLCBbLXdpZHRoIC8gMiwgLWhlaWdodCAvIDIuNSwgd2lkdGgsIGhlaWdodF0pO1xuXG4gIGNvbnN0IGNob3JkcyA9IGNob3JkKG1hdHJpeCk7XG4gIFxuICBjb25zdCBncm91cCA9IHN2Zy5hcHBlbmQoXCJnXCIpXG4gICAgICAuYXR0cihcImZvbnQtc2l6ZVwiLCAzKVxuICAgICAgLmF0dHIoXCJmb250LWZhbWlseVwiLCBcIkNlbnR1cnkgR290aGljXCIpXG4gICAgLnNlbGVjdEFsbChcImdcIilcbiAgICAuZGF0YShjaG9yZHMuZ3JvdXBzKVxuICAgIC5qb2luKFwiZ1wiKTtcblxuICBncm91cC5hcHBlbmQoXCJwYXRoXCIpXG4gICAgICAuYXR0cihcImZpbGxcIiwgZCA9PiB7XG4gICAgICAgICAgIHN1bV90YXJnZXQgPSBkMy5zdW0oY2hvcmRzLCBjID0+IChjLnRhcmdldC5pbmRleCA9PT0gZC5pbmRleCkgKiBjLnRhcmdldC52YWx1ZSk7XG4gICAgICAgICAgIHN1bV9zb3VyY2UgPSBkMy5zdW0oY2hvcmRzLCBjID0+IChjLnNvdXJjZS5pbmRleCA9PT0gZC5pbmRleCkgKiBjLnNvdXJjZS52YWx1ZSk7XG4gICAgICAgICAgIHN1bV95aHQgPSBzdW1fdGFyZ2V0LXN1bV9zb3VyY2U7XG4gICAgICAgICAgICBpZiAoc3VtX3lodCA+IDApIHsgXG4gICAgICAgICAgICAgIHZhcmkgPSBcIiMwMDk2NTFcIlxuICAgICAgICAgICAgICByZXR1cm4gdmFyaSBcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIGVsc2UgaWYgKHN1bV95aHQgPT0gMCkgeyBcbiAgICAgICAgICAgICAgdmFyaSA9IFwiIzI4MzM2Q1wiXG4gICAgICAgICAgICAgIHJldHVybiB2YXJpIFxuICAgICAgICAgICAgfVxuICAgICAgICAgICAgZWxzZSBcdHsgXG4gICAgICAgICAgICAgIHZhcmkgPSBcIiNERTIzMkZcIiBcbiAgICAgICAgICAgICAgcmV0dXJuIHZhcmkgXG4gICAgICAgICAgICB9XG4gICAgICAgIH0pXG4gICAgICAuYXR0cihcImRcIiwgYXJjKTtcblxuICBncm91cC5hcHBlbmQoXCJ0ZXh0XCIpXG4gICAgICAuZWFjaChkID0+IChkLmFuZ2xlID0gKGQuc3RhcnRBbmdsZSArIGQuZW5kQW5nbGUpIC8gMikpXG4gICAgICAuYXR0cihcImR5XCIsIFwiMC4zNWVtXCIpXG4gICAgICAuYXR0cihcInRyYW5zZm9ybVwiLCBkID0+IGBcbiAgICAgICAgcm90YXRlKCR7KGQuYW5nbGUgKiAxODAgLyBNYXRoLlBJIC0gOTApfSlcbiAgICAgICAgdHJhbnNsYXRlKCR7b3V0ZXJSYWRpdXMgKyA2fSlcbiAgICAgICAgJHtkLmFuZ2xlID4gTWF0aC5QSSA/IFwicm90YXRlKDE4MClcIiA6IFwiXCJ9XG4gICAgICBgKVxuICAgICAgLmF0dHIoXCJ0ZXh0LWFuY2hvclwiLCBkID0+IGQuYW5nbGUgPiBNYXRoLlBJID8gXCJlbmRcIiA6IG51bGwpXG4gICAgICAvLy50ZXh0KGQgPT4gbmFtZXNbZC5pbmRleF0pXG4gICAgICAudGV4dChkID0+IChkLmluZGV4ID49IDMpID8gbmFtZXNbZC5pbmRleF0gOiBcIlwiKVxuICAgICAgLmF0dHIoXCJmaWxsXCIsIGQgPT4ge1xuICAgICAgICAgICBzdW1fdGFyZ2V0ID0gZDMuc3VtKGNob3JkcywgYyA9PiAoYy50YXJnZXQuaW5kZXggPT09IGQuaW5kZXgpICogYy50YXJnZXQudmFsdWUpO1xuICAgICAgICAgICBzdW1fc291cmNlID0gZDMuc3VtKGNob3JkcywgYyA9PiAoYy5zb3VyY2UuaW5kZXggPT09IGQuaW5kZXgpICogYy5zb3VyY2UudmFsdWUpO1xuICAgICAgICAgICBzdW1feWh0ID0gc3VtX3RhcmdldC1zdW1fc291cmNlO1xuICAgICAgICAgICAgaWYgKHN1bV95aHQgPiAwKSB7IFxuICAgICAgICAgICAgICB2YXJpID0gXCIjMDA5NjUxXCJcbiAgICAgICAgICAgICAgcmV0dXJuIHZhcmlcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIGVsc2UgaWYgKHN1bV95aHQgPT0gMCkgeyBcbiAgICAgICAgICAgICAgdmFyaSA9IFwiIzI4MzM2Q1wiXG4gICAgICAgICAgICAgIHJldHVybiB2YXJpIFxuICAgICAgICAgICAgfVxuICAgICAgICAgICAgZWxzZSBcdHsgXG4gICAgICAgICAgICAgIHZhcmkgPSBcIiNERTIzMkZcIiBcbiAgICAgICAgICAgICAgcmV0dXJuIHZhcmkgXG4gICAgICAgICAgICB9XG4gICAgICAgIH0pO1xuXG4gIGdyb3VwLmFwcGVuZChcInRpdGxlXCIpXG4gICAgICAudGV4dChkID0+IGAke25hbWVzW2QuaW5kZXhdfSBcblxuJHtkMy5zdW0oY2hvcmRzLCBjID0+IChjLnNvdXJjZS5pbmRleCA9PT0gZC5pbmRleCkgKiBjLnNvdXJjZS52YWx1ZSl9IGzDpGh0ZWUg4oaSXG4ke2QzLnN1bShjaG9yZHMsIGMgPT4gKGMudGFyZ2V0LmluZGV4ID09PSBkLmluZGV4KSAqIGMuc291cmNlLnZhbHVlKX0gdHVsZWUg4oaQXG4ke2QzLnN1bShjaG9yZHMsIGMgPT4gKGMudGFyZ2V0LmluZGV4ID09PSBkLmluZGV4KSAqIGMudGFyZ2V0LnZhbHVlKS0gZDMuc3VtKGNob3JkcywgYyA9PiAoYy5zb3VyY2UuaW5kZXggPT09IGQuaW5kZXgpICogYy5zb3VyY2UudmFsdWUpfSBuZXR0byA9YCk7ICBcblxuICBzdmcuYXBwZW5kKFwiZ1wiKVxuICAgICAgLmF0dHIoXCJmaWxsLW9wYWNpdHlcIiwgMC43NSlcbiAgICAuc2VsZWN0QWxsKFwicGF0aFwiKVxuICAgIC5kYXRhKGNob3JkcylcbiAgICAuam9pbihcInBhdGhcIilcbiAgICAgIC5zdHlsZShcIm1peC1ibGVuZC1tb2RlXCIsIFwibXVsdGlwbHlcIilcbiAgICAgICAgICAuYXR0cihcImZpbGxcIiwgZCA9PiB7XG4gICAgICAgICAgIHN1bV90YXJnZXQgPSBkMy5zdW0oY2hvcmRzLCBjID0+IChjLnRhcmdldC5pbmRleCA9PT0gZC5pbmRleCkgKiBjLnRhcmdldC52YWx1ZSk7XG4gICAgICAgICAgIHN1bV9zb3VyY2UgPSBkMy5zdW0oY2hvcmRzLCBjID0+IChjLnNvdXJjZS5pbmRleCA9PT0gZC5pbmRleCkgKiBjLnNvdXJjZS52YWx1ZSk7XG4gICAgICAgICAgIHN1bV95aHQgPSBzdW1fdGFyZ2V0LXN1bV9zb3VyY2U7XG4gICAgICAgICAgICBpZiAoc3VtX3lodCA+IDApIHsgXG4gICAgICAgICAgICAgIHZhcmkgPSBcIiMwMDk2NTFcIlxuICAgICAgICAgICAgICByZXR1cm4gdmFyaSBcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIGVsc2UgaWYgKHN1bV95aHQgPT0gMCkgeyBcbiAgICAgICAgICAgICAgdmFyaSA9IFwiIzI4MzM2Q1wiXG4gICAgICAgICAgICAgIHJldHVybiB2YXJpIFxuICAgICAgICAgICAgfVxuICAgICAgICAgICAgZWxzZSBcdHsgXG4gICAgICAgICAgICAgIHZhcmkgPSBcIiNERTIzMkZcIiBcbiAgICAgICAgICAgICAgcmV0dXJuIHZhcmkgXG4gICAgICAgICAgICB9XG4gICAgICAgIH0pXG4gICAgICAuYXR0cihcImRcIiwgcmliYm9uKVxuICAgIC5hcHBlbmQoXCJ0aXRsZVwiKVxuICAgICAgLnRleHQoZCA9PiBgJHtuYW1lc1tkLnNvdXJjZS5pbmRleF19IC0tPiAke25hbWVzW2QudGFyZ2V0LmluZGV4XX0gJHtkLnNvdXJjZS52YWx1ZX1gKTtcbiAgICAgIFxuICAgICAgXG4gIHN2Zy5jYWxsKHpvb20pO1xuICAgXG5cbiAgZnVuY3Rpb24gcmVzZXQoKSB7XG4gICAgLy8gc3RhdGVzLnRyYW5zaXRpb24oKS5zdHlsZShcImZpbGxcIiwgbnVsbCk7XG4gICAgc3ZnLnRyYW5zaXRpb24oKS5kdXJhdGlvbig3NTApLmNhbGwoXG4gICAgICB6b29tLnRyYW5zZm9ybSxcbiAgICAgIGQzLnpvb21JZGVudGl0eSxcbiAgICAgIGQzLnpvb21UcmFuc2Zvcm0oc3ZnLm5vZGUoKSkuaW52ZXJ0KFtjaGFydF93aWR0aCAvIDIsIGNoYXJ0X2hlaWdodCAvIDJdKVxuICAgICk7XG4gIH1cblxuICBmdW5jdGlvbiB6b29tZWQoZXZlbnQpIHtcbiAgICBjb25zdCB7dHJhbnNmb3JtfSA9IGV2ZW50O1xuICAgIHN2Zy5hdHRyKFwidHJhbnNmb3JtXCIsIHRyYW5zZm9ybSk7XG4gICAgc3ZnLmF0dHIoXCJzdHJva2Utd2lkdGhcIiwgMSAvIHRyYW5zZm9ybS5rKTtcbiAgfSAgICBcblxuICByZXR1cm4gc3ZnLm5vZGUoKTtcblxuXG59XG5cbiJ9XX0=
 </script>
